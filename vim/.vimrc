@@ -34,6 +34,11 @@ endfunction
 :set dictionary="/usr/dict/words"
 
 
+" Copy and paste
+map <F2> :.w !pbcopy<CR><CR>
+map <F3> :r !pbpaste<CR>
+
+
 " Setup templates for certain filetypes
 :autocmd BufNewFile *.c 0r ~/.vimtemplates/skeleton.c
 :autocmd BufNewFile *.html 0r ~/.vimtemplates/skeleton.html
