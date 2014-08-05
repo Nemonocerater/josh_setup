@@ -9,4 +9,5 @@ if [ ! -d "tmux" ]; then
 fi
 
 cp ~/.vimrc vim/.vimrc
+cp -r ~/.vimtemplates vim/.vimtemplates
 cp ~/.tmux.conf tmux/.tmux.conf
