@@ -1,0 +1,6 @@
+#!/bin/sh
+
+touch $1
+chmod 755 $1
+echo "#!/bin/sh\n\n" >> $1
+vim $1

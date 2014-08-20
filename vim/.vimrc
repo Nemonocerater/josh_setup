@@ -6,6 +6,7 @@ set number			" Turns on line numbers
 set smartindent		" Automatically maintains indentation
 set autoindent " May not need both of these (auto, smart)
 set tabstop=4 		" Sets tabs to be 4 spaces wide
+set shiftwidth=4	" 
 set nowrap			" Stops text from wrapping
 set ruler 			" Show cursor position in bottom right of screen
 set showcmd			" Show partial commands in bottom right of screen

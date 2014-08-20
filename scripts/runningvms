@@ -1,0 +1,6 @@
+#!/bin/sh
+
+echo "VMWare Fusion Boxes\n=================================\n"
+find /var/run/vmware -name configFile -exec readlink {} \;
+echo "\nVirtualBox Boxes\n=================================\n"
+VBoxManage list runningvms
