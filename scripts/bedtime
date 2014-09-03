@@ -1,4 +1,10 @@
 #!/bin/sh
 
+if [ $1 == "-h" ]; then
+	echo "Need root privileges to perform shutdown"
+	sudo su
+	sleep $2
+	shutdown -h now
+fi
 sleep $1
 pmset sleepnow
