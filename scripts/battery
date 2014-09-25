@@ -1,0 +1,8 @@
+#!/bin/sh
+
+while :
+do
+	pmset -g batt | grep % | cut -f2
+	sleep 1
+done
+
