@@ -3,6 +3,6 @@
 while :
 do
 	pmset -g batt | grep % | cut -f2
-	sleep 1
+	sleep 60
 done
 

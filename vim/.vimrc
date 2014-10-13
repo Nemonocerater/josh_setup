@@ -43,7 +43,7 @@ endfunction
 
 " Copy and paste
 map <F2> :.w !pbcopy<CR><CR>
-map <F3> :r !pbpaste<CR>
+map <F3> :set noautoindent<CR> :set nosmartindent<CR> :r !pbpaste<CR> :set autoindent<CR> :set smartindent<CR>
 
 
 " Setup templates for certain filetypes
@@ -55,4 +55,5 @@ map <F3> :r !pbpaste<CR>
 :autocmd BufRead,BufNewFile *_js.resource setlocal syntax=js
 :autocmd BufRead,BufNewFile *.cls setlocal syntax=cs
 :autocmd BufRead,BufNewFile *.page setlocal syntax=html
+:autocmd BufRead,BufNewFile *.coffee setlocal syntax=python
 
