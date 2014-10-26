@@ -19,6 +19,14 @@ set undolevels=1000		" have lots undo
 
 filetype on				" Allows vim to detect filetyps for syntax highlighting
 
+if has("gui_running")
+	colorscheme guardian
+endif
+
+if has("gui_macvim")
+	colorscheme guardian
+endif
+
 " Set the default theme
 "colorscheme twilight
 
