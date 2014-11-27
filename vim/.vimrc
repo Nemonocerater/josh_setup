@@ -63,5 +63,7 @@ map <F3> :set noautoindent<CR> :set nosmartindent<CR> :r !pbpaste<CR> :set autoi
 :autocmd BufRead,BufNewFile *_js.resource setlocal syntax=js
 :autocmd BufRead,BufNewFile *.cls setlocal syntax=cs
 :autocmd BufRead,BufNewFile *.page setlocal syntax=html
+
 :autocmd BufRead,BufNewFile *.coffee setlocal syntax=python
+:autocmd BufRead,BufNewFile *.less setlocal syntax=css
 
