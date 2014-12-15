@@ -17,7 +17,10 @@ set clipboard=unnamed	" Sets the clipboard
 set history=1000		" remember more commands and search history
 set undolevels=1000		" have lots undo
 
-filetype on				" Allows vim to detect filetyps for syntax highlighting
+" Swqpfiles into backup
+set backupdir=./.backup,.,~/.backup
+set directory=.,./.backup,~/.backup
+
 
 if has("gui_running")
 	colorscheme guardian
@@ -58,7 +61,8 @@ map <F3> :set noautoindent<CR> :set nosmartindent<CR> :r !pbpaste<CR> :set autoi
 :autocmd BufNewFile *.c 0r ~/.vimtemplates/skeleton.c
 :autocmd BufNewFile *.html 0r ~/.vimtemplates/skeleton.html
 
-" Default settings for APEX files
+" Default syntax highlighting
+filetype on				" Allows vim to detect filetyps for syntax highlighting
 :autocmd BufRead,BufNewFile *_css.resource setlocal syntax=css
 :autocmd BufRead,BufNewFile *_js.resource setlocal syntax=js
 :autocmd BufRead,BufNewFile *.cls setlocal syntax=cs
