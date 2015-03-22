@@ -8,6 +8,12 @@ if [ ! -d "tmux" ]; then
 	mkdir tmux
 fi
 
+## Yank zsh
+cp ~/.zshrc ./.zshrc
+
+## Yank vim
 cp ~/.vimrc vim/.vimrc
-cp -r ~/.vimtemplates vim/.vimtemplates
+cp -r ~/.vimtemplates vim/
+
+## Yank tmux
 cp ~/.tmux.conf tmux/.tmux.conf
