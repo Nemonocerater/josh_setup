@@ -5,7 +5,7 @@ read -p "Do you want to keep your current .files (y/n)? " -n 1 -r
 echo
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-	echo "It worked"
+	echo "yanking files from ~"
 	./yank_mac_config.sh
 fi
 
