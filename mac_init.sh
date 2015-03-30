@@ -10,6 +10,7 @@ sudo brew doctor
 
 ## Install vim
 brew install macvim
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 ## Install tmux
 brew install tmux
