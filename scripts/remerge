@@ -1,0 +1,14 @@
+#!/bin/sh
+
+BRANCH=$1
+if [ $1!="" ]
+then
+	BRANCH=`git rev-parse --abbrev-ref HEAD`
+fi
+
+git checkout master
+git pull origin master
+git checkout $BRANCH
+git rebase master
+git checkout master
+git merge $BRANCH

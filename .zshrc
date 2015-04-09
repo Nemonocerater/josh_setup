@@ -1,14 +1,11 @@
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ZSH=/Users/joshua/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="robbyrussell"
-#ZSH_THEME="miloshadzic"
-ZSH_THEME="simple"
-#ZSH_THEME="sorin"
+ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -50,12 +47,12 @@ ZSH_THEME="simple"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+# User configuration
+
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin"
+# export MANPATH="/usr/local/man:$MANPATH"
+
 source $ZSH/oh-my-zsh.sh
-source ~/.bash_profile
-source ~/.bashrc
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:~/bin ~/Library/Python/2.7/bin:/opt/X11/bin:/usr/local/git/bin"
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -84,32 +81,11 @@ eval "$(rbenv init -)"
 
 
 
-local VAGRANT_DEV_DIR=~/Code/vagrant-dev
-alias vagrant_xdebug="vagrant ssh -- -N -R 9000:localhost:9000 &"
-if [ -d "$VAGRANT_DEV_DIR" ]; then
-	local VAGRANT_XDEBUG_RUNNING="`ps -ax | grep "\d*:\d*\.\d* bash /usr/bin/vagrant ssh -- -N -R 9000:localhost:9000"`"
-	if [ -z "$VAGRANT_XDEBUG_RUNNING" ]; then
-		local PREVIOUS_DIR=`pwd`
-		cd $VAGRANT_DEV_DIR
-		printf "forwarding vagrant debug port (process id): "
-		vagrant_xdebug
-		cd $PREVIOUS_DIR
-	fi
-fi
 
 
 
 
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+
+
 
 export PATH=~/code/josh_setup/scripts:$PATH
-
-# The next line updates PATH for the Google Cloud SDK.
-source '/Users/joshua/google-cloud-sdk/path.zsh.inc'
-
-# The next line enables bash completion for gcloud.
-source '/Users/joshua/google-cloud-sdk/completion.zsh.inc'
-
-alias 'git-log'='git log --decorate'
-
