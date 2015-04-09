@@ -113,3 +113,7 @@ source '/Users/joshua/google-cloud-sdk/completion.zsh.inc'
 
 alias 'git-log'='git log --decorate'
 
+
+
+export PATH=~/code/josh_setup/scripts:$PATH
+
