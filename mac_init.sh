@@ -8,6 +8,10 @@ killall Dock
 sudo ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 sudo brew doctor
 
+## Install vim
+brew install macvim
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 ## Install tmux
 brew install tmux
 
