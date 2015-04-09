@@ -4,8 +4,7 @@ set nocompatible						" be iMproved, required for Vundle
 filetype off							" required for Vundle
 set rtp+=~/.vim/bundle/Vundle.vim		" set the runtime path to include Vundle and initialize
 
-" alternatively, pass a path where Vundle should install plugins call vundle#begin('~/some/path/here')
-call vundle#begin()
+call vundle#begin() " where Vundle should install plugins: vundle#begin('~/some/path/here')
 Plugin 'gmarik/Vundle.vim'				" let Vundle manage Vundle, required
 
 " Color Schemes
@@ -15,18 +14,14 @@ Plugin 'flazz/vim-colorschemes'
 call vundle#end()
 
 filetype plugin indent on    " required for Vundle
+" To ignore plugin indent changes, instead use: filetype plugin on
 
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
+"      ~~~~~ Brief help ~~~~~
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
 " see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
 
 
 
@@ -60,13 +55,8 @@ set mouse=a
 
 " Use TAB to complete when typing words, else inserts TABs as usual.
 " Uses dictionary and source files to find matching words to complete.
-
 " See help completion for source,
-" Note: usual completion is on <C-n> but more trouble to press all the time.
-" Never type the same word twice and maybe learn a new spellings!
 " Use the Linux dictionary when spelling is in doubt.
-" Window users can copy the file to their machine.
-
 function! Tab_Or_Complete()
 	if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
 		return "\<C-N>"
@@ -80,7 +70,7 @@ endfunction
 
 " Copy and paste
 map <F2> :.w !pbcopy<CR><CR>
-map <F3> :set noautoindent<CR> :set nosmartindent<CR> :r !pbpaste<CR> :set autoindent<CR> :set smartindent<CR>
+map <F3> :set paste<CR> :r !pbpaste<CR> :set nopaste<CR>
 
 
 " Setup templates for certain filetypes
@@ -96,12 +86,3 @@ map <F3> :set noautoindent<CR> :set nosmartindent<CR> :r !pbpaste<CR> :set autoi
 
 :autocmd BufRead,BufNewFile *.coffee setlocal syntax=python
 :autocmd BufRead,BufNewFile *.less setlocal syntax=css
-
-
-
-" Pathogen Installation
-"execute pathogen#infect()
-
-" Add coding standards
-"let g:syntastic_javascript_checkers = ['jscs','jshint']
-

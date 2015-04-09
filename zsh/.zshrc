@@ -1,35 +1,17 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
+# ZSH Themes (yey)
 #ZSH_THEME="robbyrussell"
 #ZSH_THEME="miloshadzic"
 ZSH_THEME="simple"
 #ZSH_THEME="sorin"
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -51,14 +33,21 @@ ZSH_THEME="simple"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-source ~/.bash_profile
-source ~/.bashrc
+
+if [ -f ~/.bash_profile ]; then
+	source ~/.bash_profile
+fi
+if [ -f ~/.bashrc ]; then
+	source ~/.bashrc
+fi
+
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:~/bin ~/Library/Python/2.7/bin:/opt/X11/bin:/usr/local/git/bin"
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+
+if [ "$(which rbenv)" != "rbenv not found" ]; then
+	eval "$(rbenv init -)"
+fi
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -67,23 +56,13 @@ eval "$(rbenv init -)"
 #   export EDITOR='mvim'
 # fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# nvm stuffs
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
 
 
-
+# vagrant stuffs
 local VAGRANT_DEV_DIR=~/Code/vagrant-dev
 alias vagrant_xdebug="vagrant ssh -- -N -R 9000:localhost:9000 &"
 if [ -d "$VAGRANT_DEV_DIR" ]; then
@@ -98,22 +77,17 @@ if [ -d "$VAGRANT_DEV_DIR" ]; then
 fi
 
 
-
-
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
-
-export PATH=~/code/josh_setup/scripts:$PATH
-
+### Google Cloud
 # The next line updates PATH for the Google Cloud SDK.
 source '/Users/joshua/google-cloud-sdk/path.zsh.inc'
 
 # The next line enables bash completion for gcloud.
 source '/Users/joshua/google-cloud-sdk/completion.zsh.inc'
 
+
+### Aliases
 alias 'git-log'='git log --decorate'
 
 
-
+# Add my custom scripts to the path
 export PATH=~/code/josh_setup/scripts:$PATH
-
