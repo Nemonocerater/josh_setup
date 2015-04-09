@@ -78,11 +78,13 @@ fi
 
 
 ### Google Cloud
-# The next line updates PATH for the Google Cloud SDK.
-source '/Users/joshua/google-cloud-sdk/path.zsh.inc'
+if [ -d "/Users/joshua/google-cloud-sdk" ]; then
+	# The next line updates PATH for the Google Cloud SDK.
+	source '/Users/joshua/google-cloud-sdk/path.zsh.inc'
 
-# The next line enables bash completion for gcloud.
-source '/Users/joshua/google-cloud-sdk/completion.zsh.inc'
+	# The next line enables bash completion for gcloud.
+	source '/Users/joshua/google-cloud-sdk/completion.zsh.inc'
+fi
 
 
 ### Aliases
