@@ -1,20 +1,20 @@
 #!/bin/sh
 
-## ask if user wants to keep their current .files
-read -p "Do you want to keep your current .files (y/n)? " -n 1 -r
-echo
-
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-	echo "yanking files from ~"
-	./yank_mac_config.sh
-fi
-
 ## Update the zsh files
-cp ./.zshrc ~/.zshrc
+rm ~/.zshrc 
+ln -s $HOME/code/josh_setup/zsh/.zshrc ~/.zshrc
+#cp zsh/.zshrc ~/.zshrc
 
 ## Update the vim files
-cp vim/.vimrc ~/.vimrc
-cp -r vim/.vimtemplates ~/.vimtemplates
+rm ~/.vimrc
+ln -s $HOME/code/josh_setup/vim/.vimrc ~/.vimrc
+#cp vim/.vimrc ~/.vimrc
+
+rm -rf ~/.vimtemplates
+ln -s $HOME/code/josh_setup/vim/.vimtemplates ~/.vimtemplates
+#cp -r vim/.vimtemplates ~/
 
 ## Update the tmux files
-cp tmux/.tmux.conf ~/.tmux.conf
+rm ~/.tmux.conf
+ln -s $HOME/code/josh_setup/tmux/.tmux.conf ~/.tmux.conf
+#cp tmux/.tmux.conf ~/.tmux.conf
