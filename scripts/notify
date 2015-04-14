@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ -z "$2" ]; then
+	/usr/bin/osascript -e "display notification \"$1\""
+else
+	/usr/bin/osascript -e "display notification \"$1\" with title \"$2\""
+fi
