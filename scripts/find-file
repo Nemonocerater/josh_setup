@@ -1,3 +1,9 @@
 #!/bin/sh
 
+if [ $# -eq 0 ]
+	then
+		echo "COMMAND NOT FORMATTED CORRECT: find-file <search_location> <search_regex>"
+		exit 1;
+fi
+
 find $1 | grep -i $2
