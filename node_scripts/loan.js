@@ -1,6 +1,8 @@
 
-// $41,000
-//
+if (process.argv[2] === "-h") {
+	console.log ("node loan.js <loanAmount> <loanPercentage:decimal> <monthlyPayment>");
+	process.exit (0);
+}
 
 var loanAmount = process.argv[2];
 var loanPercentage = process.argv[3];
@@ -15,6 +17,7 @@ var numMonths = 0;
 while (currentLoan > 0) {
 	currentLoan -= monthlyPayment;
 	currentLoan = monthlyIncrease * currentLoan;
+	console.log (currentLoan);
 
 	amountPaid += monthlyPayment;
 	numMonths++;
