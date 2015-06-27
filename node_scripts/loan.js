@@ -17,7 +17,6 @@ var numMonths = 0;
 while (currentLoan > 0) {
 	currentLoan -= monthlyPayment;
 	currentLoan = monthlyIncrease * currentLoan;
-	console.log (currentLoan);
 
 	amountPaid += monthlyPayment;
 	numMonths++;
