@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+
+if (process.argv.length < 5) {
+	console.log ("invest <numMonths> <montlyAmount> <percentageReturn:decimal> [<initialCapital> = 0]");
+	process.exit (0);
+}
+
+var numMonths = parseInt (process.argv[2]);
+var monthlyAmount = parseInt (process.argv[3]);
+var percentageReturn = process.argv[4];
+
+var initialCapital = 0;
+if (process.argv.length > 5) {
+	initialCapital = parseInt (process.argv[5]);
+}
+
+var investment = initialCapital;
+var monthlyIncrease = 1 + (percentageReturn / 12);
+var amountPaid = 0;
+
+for (var i = 0; i < numMonths; i++) {
+	amountPaid += monthlyAmount;
+	investment += monthlyAmount;
+
+	investment = investment * monthlyIncrease;
+}
+
+console.log ("You are investing " + monthlyAmount + " dollars for " + numMonths + " months with a " + percentageReturn + " growth.");
+console.log ("You started with: " + initialCapital);
+console.log ("You put in: " + amountPaid);
+console.log ("Your investment is worth: $" + investment.toFixed(2));

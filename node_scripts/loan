@@ -1,6 +1,7 @@
+#!/usr/bin/env node
 
-if (process.argv[2] === "-h") {
-	console.log ("node loan.js <loanAmount> <loanPercentage:decimal> <monthlyPayment>");
+if (process.argv.length < 5) {
+	console.log ("loan <loanAmount> <loanPercentage:decimal> <monthlyPayment>");
 	process.exit (0);
 }
 
