@@ -1,0 +1,6 @@
+#!/bin/sh
+
+echo "$1"
+echo "$2"
+
+find "$1" -type f -name "$2" | xargs wc -l
