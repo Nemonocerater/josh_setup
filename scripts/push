@@ -26,5 +26,5 @@ fi
 
 git add -A
 git commit -m "$message"
-#git push origin -u $branchName
+git push origin -u $branchName
 
