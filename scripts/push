@@ -1,0 +1,30 @@
+#!/bin/sh
+
+message="$1"
+branchName=`git rev-parse --abbrev-ref HEAD`
+
+if [ "$message" = "-h" ] || [ "$message" = "--help" ]; then
+	echo "You can only use this script if you are not currently on master.";
+	echo "If you are currently on master, then create a new branch.\n";
+	echo "\tgit checkout -b <branchName>\n";
+	echo "Use this command like such:\n";
+	echo "\tpush <commitMessage>\n";
+	echo "<commitMessage> should be a short description of all of the change you have made.\n";
+	exit 0;
+fi
+
+if [ $branchName = "master" ]; then
+	echo "You are on master. Please make a new branch with 'git checkout -b <branchName>'";
+	exit 0;
+fi
+
+if [ -z "$message" ]; then
+	echo "You must supply a commit message.\n";
+	echo "\tpush \"Some commit message about files changed\"\n";
+	exit 0;
+fi
+
+git add -A
+git commit -m "$message"
+git push origin -u $branchName
+
