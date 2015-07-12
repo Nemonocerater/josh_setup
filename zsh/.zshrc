@@ -91,6 +91,11 @@ fi
 alias 'git-log'='git log --decorate'
 
 
+### Mac OS X Improvements
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
+
 # Add my custom scripts to the path
 export PATH=~/code/josh_setup/scripts:$PATH
 export PATH=~/code/josh_setup/node_scripts:$PATH
