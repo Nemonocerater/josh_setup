@@ -7,6 +7,7 @@ if [ "$arg" = "-h" ] || [ "$arg" = "--help" ]; then
 	echo "You can only use this script if you are not currently on master.";
 	echo "If you are currently on master, then create a new branch.\n";
 	echo "\tgit checkout -b <branchName>\n";
+	echo "This will pull the latest master and merge it into your branch."
 	echo "Use this command like such:\n";
 	echo "\tpull\n";
 	exit 0;
