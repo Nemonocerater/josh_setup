@@ -1,0 +1,8 @@
+#!/bin/sh
+
+args=($@);
+echo "Script: $0";
+echo "Number of args: $#";
+for arg in "${args[@]}"; do
+	echo "$arg";
+done

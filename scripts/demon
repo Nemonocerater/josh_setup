@@ -1,0 +1,8 @@
+#!/bin/sh
+
+array=(`cat /usr/share/dict/words | rev | gshuf`);
+
+for i in "${array[@]}"; do
+	printf "`style --random $i` ";
+	say $i;
+done

@@ -1,0 +1,28 @@
+#!/bin/sh
+
+arg="$1"
+branchName=`git rev-parse --abbrev-ref HEAD`
+
+if [ "$arg" = "-h" ] || [ "$arg" = "--help" ]; then
+	echo "You can only use this script if you are not currently on master.";
+	echo "If you are currently on master, then create a new branch.\n";
+	echo "\tgit checkout -b <branchName>\n";
+	echo "This will pull the latest master and merge it into your branch."
+	echo "Use this command like such:\n";
+	echo "\tpull\n";
+	exit 0;
+fi
+
+echo "You can use \`push -h\` or \`push --help\` for more information.";
+
+if [ $branchName = "master" ]; then
+	echo "You are on master. Please make a new branch with 'git checkout -b <branchName>'";
+	exit 0;
+fi
+
+git stash;
+git checkout master;
+git pull origin master;
+git checkout $branchName;
+git merge master;
+git stash apply;

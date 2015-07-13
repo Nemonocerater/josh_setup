@@ -13,14 +13,17 @@ if [ "$message" = "-h" ] || [ "$message" = "--help" ]; then
 	exit 0;
 fi
 
-if [ $branchName = "master" ]; then
-	echo "You are on master. Please make a new branch with 'git checkout -b <branchName>'";
-	exit 0;
-fi
-
 if [ -z "$message" ]; then
 	echo "You must supply a commit message.\n";
 	echo "\tpush \"Some commit message about files changed\"\n";
+	echo "For more information you can type one of the following:\n";
+	echo "\tpush --help";
+	echo "\tpush -h\n";
+	exit 0;
+fi
+
+if [ $branchName = "master" ]; then
+	echo "You are on master. Please make a new branch with 'git checkout -b <branchName>'";
 	exit 0;
 fi
 
