@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://www.npmjs.com/package/yargs -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">.autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; cursor: default }
+.autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
+.autocomplete-selected { background: #F0F0F0; }
+.autocomplete-suggestions strong { font-weight: bold; }
+#powered-by-constructor-io { font-size: 0.8em; text-align:right; background-color:rgb(255,255,192); font-family:sans-serif; padding: 4px }
+.autocomplete-suggestion-image { float:left; padding-right: 10px }
+#autocomplete-direct-results:before { content:'Products' }
+#autocomplete-search-suggestions:before { content:'Search Suggestions' }</style>
+  <title>yargs</title>
+
+    <meta name="description" content="Light-weight option parsing with an argv hash. No optstrings attached.">
+    <meta name="keywords" content="command,cli,parsing,parser,option,args,argument">
+    <meta name="twitter:url" content="https://www.npmjs.com/package/yargs">
+    <meta name="twitter:title" content="npm: yargs">
+    <meta name="twitter:description" content="Light-weight option parsing with an argv hash. No optstrings attached.">
+
+  <meta charset="utf-8">
+  <meta http-equiv="cleartype" content="on">
+
+  <meta name="apple-mobile-web-app-capable" content="no">
+  <meta name="description" content="npm is the package manager for javascript">
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,initial-scale=1,user-scalable=yes">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-icon-180x180.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-startup-image-1024x748.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-startup-image-1536x2008.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-startup-image-2048x1496.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-startup-image-320x460.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-startup-image-640x1096.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-startup-image-640x920.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-startup-image-768x1004.png">
+  <link rel="icon" type="image/png" href="https://www.npmjs.com/static/images/touch-icons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://www.npmjs.com/static/images/touch-icons/favicon-230x230.png" sizes="230x230">
+  <link rel="icon" type="image/png" href="https://www.npmjs.com/static/images/touch-icons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="https://www.npmjs.com/static/images/touch-icons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://www.npmjs.com/static/images/touch-icons/coast-228x228.png" sizes="228x228">
+  <link rel="icon" type="image/png" href="https://www.npmjs.com/static/images/touch-icons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="https://www.npmjs.com/static/images/touch-icons/manifest.json">
+  <link rel="shortcut icon" href="https://www.npmjs.com/static/images/touch-icons/favicon.ico">
+  <link rel="yandex-tableau-widget" href="https://www.npmjs.com/static/images/touch-icons/yandex-browser-manifest.json">
+  <meta property="og:image" content="https://www.npmjs.com/static/images/touch-icons/open-graph.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="msapplication-TileColor" content="#cb3837">
+  <meta name="msapplication-TileImage" content="/static/images/touch-icons/mstile-144x144.png">
+  <meta name="msapplication-config" content="/static/images/touch-icons/browserconfig.xml">
+  <meta name="theme-color" content="#cb3837">
+
+  <link rel="canonical" href="./yargs_files/yargs.html">
+  <link rel="stylesheet" media="all" href="https://www.npmjs.com/static/css/index.css">
+  <link rel="search" type="application/opensearchdescription+xml" href="https://www.npmjs.com/opensearch.xml" title="npm">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700">
+
+  <script id="hs-analytics" src="./yargs_files/419727.js"></script><script async="" src="./yargs_files/analytics.js"></script><script defer="" src="./yargs_files/index.js"></script>
+  <script defer="" src="./yargs_files/vendor.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebSite" data-crumb="eBzVodycHqfauL9zmJ8Q7qX8RXxqNLfpppIbUTD0LSS">
+  <meta itemprop="url" content="https://www.npmjs.com/">
+
+  <div id="notification-banner" style="">
+    <div class="container">
+      <hgroup>
+        <a href="https://www.npmjs.com/private-modules" data-event-trigger="click" data-event-name="private-modules-banner-signup-via-wombat">
+          <img src="./yargs_files/wombat-by-night.svg" alt="night wombat">
+        </a>
+        <h2>private npm is here.</h2>
+        <h3>publish unlimited private modules for just $7/month</h3>
+      </hgroup>
+      <a class="button" href="https://www.npmjs.com/private-modules" data-event-trigger="click" data-event-name="private-modules-banner-signup">sign up</a>
+      <a class="button button-subtle banner-close" data-event-trigger="click" data-event-name="private-modules-banner-no-thanks">no thanks</a>
+    </div>
+  </div>
+
+  <nav>
+    <div class="container">
+      <a href="https://www.npmjs.com/package/yargs#" id="npm-expansions" data-event-trigger="click" data-event-name="npm-expansions">Never Poke Monkeys</a>
+      <a href="https://www.npmjs.com/private-modules" data-event-trigger="click" data-event-name="private-modules-nav-link">npm private modules</a>
+      <a href="https://www.npmjs.com/enterprise">npm Enterprise</a>
+      <a href="https://docs.npmjs.com/">documentation</a>
+      <a href="http://blog.npmjs.org/">blog</a>
+      <a href="https://www.npmjs.com/npm-weekly">npm weekly</a>
+      <a href="https://www.npmjs.com/jobs">jobs</a>
+      <a href="https://www.npmjs.com/support">support</a>
+    </div>
+  </nav>
+
+  <header>
+    <div class="container">
+      <a href="https://www.npmjs.com/" id="npm-logo"><img src="./yargs_files/npm-logo.svg" alt="npm logo"></a>
+
+      <div id="user-info" class="anonymous">
+          <a href="https://www.npmjs.com/login"><img src="./yargs_files/wombat-avatar-small.png"></a>
+          <ul class="single">
+            <li><a href="https://www.npmjs.com/signup">sign up</a> or <a href="https://www.npmjs.com/login">log in</a></li>
+          </ul>
+
+      </div>
+
+      <form id="npm-search" action="https://www.npmjs.com/search" method="get" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">
+        <meta itemprop="target" content="https://www.npmjs.com/search?q={q}">
+        <input name="q" value="" type="search" id="site-search" placeholder="find packages" tabindex="1" autocorrect="off" autocapitalize="off" itemprop="query-input" autocomplete="off">
+        <input type="submit" id="site-search-submit">
+      </form>
+
+    </div>
+  </header>
+
+  <div class="container content">
+    
+<div class="content-column">
+
+  <h1 class="package-name">
+    <a href="./yargs_files/yargs.html" class="active">yargs</a>
+      <i class="icon-public"></i>
+  </h1>
+  <p class="package-description">Light-weight option parsing with an argv hash. No optstrings attached.</p>
+
+  <form class="star">
+    <input type="hidden" name="name" value="yargs">
+    <input id="star-input" type="checkbox" name="isStarred" value="true">
+    <label for="star-input" class="icon-star"></label>
+    <div class="honey">
+      <label>If you are a robot, enter text here</label>
+      <input type="text" name="honey">
+    </div>
+    
+      <input type="hidden" name="crumb" value="eBzVodycHqfauL9zmJ8Q7qX8RXxqNLfpppIbUTD0LSS">
+  </form>
+
+  <div id="readme" class="markdown">
+      <h1 id="user-content-yargs" class="deep-link package-name-redundant"><a href="https://www.npmjs.com/package/yargs#yargs">yargs</a></h1>
+<p>Yargs be a node.js library fer hearties tryin' ter parse optstrings.</p>
+<p>With yargs, ye be havin' a map that leads straight to yer treasure! Treasure of course, being a simple option hash.</p>
+<p><a href="https://travis-ci.org/bcoe/yargs"><img src="./yargs_files/yargs.png" class="badge"></a>
+<a href="https://gemnasium.com/bcoe/yargs"><img src="./yargs_files/yargs(1).png"></a>
+<a href="https://coveralls.io/r/bcoe/yargs?branch="><img src="./yargs_files/badge.svg" class="badge"></a>
+<a href="./yargs_files/yargs.html"><img src="https://img.shields.io/npm/v/yargs.svg" class="badge"></a></p>
+<blockquote>
+<p>Yargs is the official successor to optimist. Please feel free to submit issues and pull requests. If you'd like to contribute and don't know where to start, have a look at <a href="https://github.com/bcoe/yargs/issues">the issue list</a> :)</p>
+</blockquote>
+<h1 id="user-content-examples" class="deep-link"><a href="https://www.npmjs.com/package/yargs#examples">examples</a></h1>
+<h2 id="user-content-with-yargs-the-options-be-just-a-hash" class="deep-link"><a href="https://www.npmjs.com/package/yargs#with-yargs-the-options-be-just-a-hash">With yargs, the options be just a hash!</a></h2>
+<p>plunder.js:</p>
+<pre><code class="highlight javascript"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="comment line shebang js"><span>#!/usr/bin/env&nbsp;node</span></span></span></div><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;argv&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>yargs</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span><span class="meta delimiter method period js"><span>.</span></span><span>argv</span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;</span></span></div><div class="line"><span class="source js"><span class="keyword control js"><span>if</span></span><span>&nbsp;</span><span class="meta brace round js"><span>(</span></span><span>argv</span><span class="meta delimiter method period js"><span>.</span></span><span>ships&nbsp;</span><span class="keyword operator js"><span>&gt;</span></span><span>&nbsp;</span><span class="constant numeric js"><span>3</span></span><span>&nbsp;</span><span class="keyword operator js"><span>&amp;</span><span>&amp;</span></span><span>&nbsp;argv</span><span class="meta delimiter method period js"><span>.</span></span><span>distance&nbsp;</span><span class="keyword operator js"><span>&lt;</span></span><span>&nbsp;</span><span class="constant numeric js"><span>53.5</span></span><span class="meta brace round js"><span>)</span></span><span>&nbsp;</span><span class="meta brace curly js"><span>{</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>Plunder&nbsp;more&nbsp;riffiwobbles!</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span class="meta brace curly js"><span>}</span></span></span></div><div class="line"><span class="source js"><span class="keyword control js"><span>else</span></span><span>&nbsp;</span><span class="meta brace curly js"><span>{</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>Retreat&nbsp;from&nbsp;the&nbsp;xupptumblers!</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span class="meta brace curly js"><span>}</span></span></span></div></pre></code></pre>
+<hr>
+<pre><code>$ ./plunder.js --ships=4 --distance=22
+Plunder more riffiwobbles!
+
+$ ./plunder.js --ships 12 --distance 98.7
+Retreat from the xupptumblers!
+</code></pre>
+<p><img src="./yargs_files/4WFGVJ9.png"></p>
+<h2 id="user-content-but-don-t-walk-the-plank-just-yet-there-be-more-you-can-do-short-options" class="deep-link"><a href="https://www.npmjs.com/package/yargs#but-don-t-walk-the-plank-just-yet-there-be-more-you-can-do-short-options">But don't walk the plank just yet! There be more! You can do short options:</a></h2>
+<p>short.js:</p>
+<pre><code class="highlight javascript"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="comment line shebang js"><span>#!/usr/bin/env&nbsp;node</span></span></span></div><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;argv&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>yargs</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span><span class="meta delimiter method period js"><span>.</span></span><span>argv</span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>(%d,%d)</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;argv</span><span class="meta delimiter method period js"><span>.</span></span><span class="support constant js"><span>x</span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;argv</span><span class="meta delimiter method period js"><span>.</span></span><span class="support constant js"><span>y</span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div></pre></code></pre>
+<hr>
+<pre><code>$ ./short.js -x 10 -y 21
+(10,21)
+</code></pre>
+<h2 id="user-content-and-booleans-both-long-short-and-even-grouped" class="deep-link"><a href="https://www.npmjs.com/package/yargs#and-booleans-both-long-short-and-even-grouped">And booleans, both long, short, and even grouped:</a></h2>
+<p>bool.js:</p>
+<pre><code class="highlight javascript"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="comment line shebang js"><span>#!/usr/bin/env&nbsp;node</span></span></span></div><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;util&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>util</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;argv&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>yargs</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span><span class="meta delimiter method period js"><span>.</span></span><span>argv</span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;</span></span></div><div class="line"><span class="source js"><span class="keyword control js"><span>if</span></span><span>&nbsp;</span><span class="meta brace round js"><span>(</span></span><span>argv</span><span class="meta delimiter method period js"><span>.</span></span><span>s</span><span class="meta brace round js"><span>)</span></span><span>&nbsp;</span><span class="meta brace curly js"><span>{</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;util</span><span class="meta delimiter method period js"><span>.</span></span><span class="support function js"><span>print</span></span><span class="meta brace round js"><span>(</span></span><span>argv</span><span class="meta delimiter method period js"><span>.</span></span><span>fr&nbsp;</span><span class="keyword operator js"><span>?</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>Le&nbsp;perroquet&nbsp;dit:&nbsp;</span><span class="punctuation string end js"><span>'</span></span></span><span>&nbsp;</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>The&nbsp;parrot&nbsp;says:&nbsp;</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span class="meta brace curly js"><span>}</span></span></span></div><div class="line"><span class="source js"><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta brace round js"><span>(</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta brace round js"><span>(</span></span><span>argv</span><span class="meta delimiter method period js"><span>.</span></span><span>fr&nbsp;</span><span class="keyword operator js"><span>?</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>couac</span><span class="punctuation string end js"><span>'</span></span></span><span>&nbsp;</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>squawk</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span><span>&nbsp;</span><span class="keyword operator js"><span>+</span></span><span>&nbsp;</span><span class="meta brace round js"><span>(</span></span><span>argv</span><span class="meta delimiter method period js"><span>.</span></span><span>p&nbsp;</span><span class="keyword operator js"><span>?</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>!</span><span class="punctuation string end js"><span>'</span></span></span><span>&nbsp;</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div></pre></code></pre>
+<hr>
+<pre><code>$ ./bool.js -s
+The parrot says: squawk
+
+$ ./bool.js -sp
+The parrot says: squawk!
+
+$ ./bool.js -sp --fr
+Le perroquet dit: couac!
+</code></pre>
+<h2 id="user-content-and-non-hyphenated-options-too-just-use-argv" class="deep-link"><a href="https://www.npmjs.com/package/yargs#and-non-hyphenated-options-too-just-use-argv">And non-hyphenated options too! Just use <code>argv._</code>!</a></h2>
+<p>nonopt.js:</p>
+<pre><code class="highlight javascript"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="comment line shebang js"><span>#!/usr/bin/env&nbsp;node</span></span></span></div><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;argv&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>yargs</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span><span class="meta delimiter method period js"><span>.</span></span><span>argv</span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>(%d,%d)</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;argv</span><span class="meta delimiter method period js"><span>.</span></span><span class="support constant js"><span>x</span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;argv</span><span class="meta delimiter method period js"><span>.</span></span><span class="support constant js"><span>y</span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta brace round js"><span>(</span></span><span>argv</span><span class="meta delimiter method period js"><span>.</span></span><span>_</span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div></pre></code></pre>
+<hr>
+<pre><code>$ ./nonopt.js -x 6.82 -y 3.35 rum
+(6.82,3.35)
+[ 'rum' ]
+
+$ ./nonopt.js "me hearties" -x 0.54 yo -y 1.12 ho
+(0.54,1.12)
+[ 'me hearties', 'yo', 'ho' ]
+</code></pre>
+<h2 id="user-content-yargs-even-counts-your-booleans" class="deep-link"><a href="https://www.npmjs.com/package/yargs#yargs-even-counts-your-booleans">Yargs even counts your booleans!</a></h2>
+<p>count.js</p>
+<pre><code class="highlight javascript"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="comment line shebang js"><span>#!/usr/bin/env&nbsp;node</span></span></span></div><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;argv&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>yargs</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>count</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>verbose</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>alias</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>v</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>verbose</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>argv</span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;</span></span></div><div class="line"><span class="source js"><span>VERBOSE_LEVEL&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;argv</span><span class="meta delimiter method period js"><span>.</span></span><span>verbose</span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;</span></span></div><div class="line"><span class="source js"><span class="meta function js"><span class="storage type function js"><span>function</span></span><span>&nbsp;</span><span class="entity name function js"><span>WARN</span></span><span class="punctuation begin js"><span>(</span></span><span class="punctuation end js"><span>)</span></span></span><span>&nbsp;&nbsp;</span><span class="meta brace curly js"><span>{</span></span><span>&nbsp;VERBOSE_LEVEL&nbsp;</span><span class="keyword operator js"><span>&gt;=</span></span><span>&nbsp;</span><span class="constant numeric js"><span>0</span></span><span>&nbsp;</span><span class="keyword operator js"><span>&amp;</span><span>&amp;</span></span><span>&nbsp;</span><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta delimiter method period js"><span>.</span></span><span class="support function js"><span>apply</span></span><span class="meta brace round js"><span>(</span></span><span class="entity name type object js firebug"><span>console</span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;arguments</span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span><span>&nbsp;</span><span class="meta brace curly js"><span>}</span></span></span></div><div class="line"><span class="source js"><span class="meta function js"><span class="storage type function js"><span>function</span></span><span>&nbsp;</span><span class="entity name function js"><span>INFO</span></span><span class="punctuation begin js"><span>(</span></span><span class="punctuation end js"><span>)</span></span></span><span>&nbsp;&nbsp;</span><span class="meta brace curly js"><span>{</span></span><span>&nbsp;VERBOSE_LEVEL&nbsp;</span><span class="keyword operator js"><span>&gt;=</span></span><span>&nbsp;</span><span class="constant numeric js"><span>1</span></span><span>&nbsp;</span><span class="keyword operator js"><span>&amp;</span><span>&amp;</span></span><span>&nbsp;</span><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta delimiter method period js"><span>.</span></span><span class="support function js"><span>apply</span></span><span class="meta brace round js"><span>(</span></span><span class="entity name type object js firebug"><span>console</span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;arguments</span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span><span>&nbsp;</span><span class="meta brace curly js"><span>}</span></span></span></div><div class="line"><span class="source js"><span class="meta function js"><span class="storage type function js"><span>function</span></span><span>&nbsp;</span><span class="entity name function js"><span>DEBUG</span></span><span class="punctuation begin js"><span>(</span></span><span class="punctuation end js"><span>)</span></span></span><span>&nbsp;</span><span class="meta brace curly js"><span>{</span></span><span>&nbsp;VERBOSE_LEVEL&nbsp;</span><span class="keyword operator js"><span>&gt;=</span></span><span>&nbsp;</span><span class="constant numeric js"><span>2</span></span><span>&nbsp;</span><span class="keyword operator js"><span>&amp;</span><span>&amp;</span></span><span>&nbsp;</span><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta delimiter method period js"><span>.</span></span><span class="support function js"><span>apply</span></span><span class="meta brace round js"><span>(</span></span><span class="entity name type object js firebug"><span>console</span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;arguments</span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span><span>&nbsp;</span><span class="meta brace curly js"><span>}</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;</span></span></div><div class="line"><span class="source js"><span>WARN</span><span class="meta brace round js"><span>(</span></span><span class="string quoted double js"><span class="punctuation string begin js"><span>"</span></span><span>Showing&nbsp;only&nbsp;important&nbsp;stuff</span><span class="punctuation string end js"><span>"</span></span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>INFO</span><span class="meta brace round js"><span>(</span></span><span class="string quoted double js"><span class="punctuation string begin js"><span>"</span></span><span>Showing&nbsp;semi-mportant&nbsp;stuff&nbsp;too</span><span class="punctuation string end js"><span>"</span></span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>DEBUG</span><span class="meta brace round js"><span>(</span></span><span class="string quoted double js"><span class="punctuation string begin js"><span>"</span></span><span>Extra&nbsp;chatty&nbsp;mode</span><span class="punctuation string end js"><span>"</span></span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div></pre></code></pre>
+<hr>
+<pre><code>$ node count.js
+Showing only important stuff
+
+$ node count.js -v
+Showing only important stuff
+Showing semi-important stuff too
+
+$ node count.js -vv
+Showing only important stuff
+Showing semi-important stuff too
+Extra chatty mode
+
+$ node count.js -v --verbose
+Showing only important stuff
+Showing semi-important stuff too
+Extra chatty mode
+</code></pre>
+<h2 id="user-content-tell-users-how-to-use-yer-options-and-make-demands" class="deep-link"><a href="https://www.npmjs.com/package/yargs#tell-users-how-to-use-yer-options-and-make-demands">Tell users how to use yer options and make demands.</a></h2>
+<p>area.js:</p>
+<pre><code class="highlight javascript"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="comment line shebang js"><span>#!/usr/bin/env&nbsp;node</span></span></span></div><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;argv&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>yargs</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>usage</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>Usage:&nbsp;$0&nbsp;-w&nbsp;[num]&nbsp;-yh[num]</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>demand</span><span class="meta brace round js"><span>(</span></span><span class="meta brace square js"><span>[</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>w</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>h</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace square js"><span>]</span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>argv</span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;</span></span></div><div class="line"><span class="source js"><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted double js"><span class="punctuation string begin js"><span>"</span></span><span>The&nbsp;area&nbsp;is:</span><span class="punctuation string end js"><span>"</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;argv</span><span class="meta delimiter method period js"><span>.</span></span><span>w&nbsp;</span><span class="keyword operator js"><span>*</span></span><span>&nbsp;argv</span><span class="meta delimiter method period js"><span>.</span></span><span>h</span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div></pre></code></pre>
+<hr>
+<pre><code>$ ./area.js -w 55 -h 11
+605
+
+$ node ./area.js -w 4.91 -w 2.51
+Usage: node ./area.js -w [num] -h [num]
+
+Options:
+  -w  [required]
+  -h  [required]
+
+Missing required arguments: h
+</code></pre>
+<h2 id="user-content-after-yer-demands-have-been-met-demand-more-ask-for-non-hypenated-arguments" class="deep-link"><a href="https://www.npmjs.com/package/yargs#after-yer-demands-have-been-met-demand-more-ask-for-non-hypenated-arguments">After yer demands have been met, demand more! Ask for non-hypenated arguments!</a></h2>
+<p>demand_count.js:</p>
+<pre><code class="highlight javascript"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="comment line shebang js"><span>#!/usr/bin/env&nbsp;node</span></span></span></div><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;argv&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>yargs</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>demand</span><span class="meta brace round js"><span>(</span></span><span class="constant numeric js"><span>2</span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>argv</span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span class="entity name type object js firebug"><span>console</span></span><span class="meta delimiter method period js"><span>.</span></span><span class="support constant dom js"><span>dir</span></span><span class="meta brace round js"><span>(</span></span><span>argv</span><span class="meta brace round js"><span>)</span></span></span></div></pre></code></pre>
+<hr>
+<pre><code>$ ./demand_count.js a
+Not enough arguments, expected 2, but only found 1
+$ ./demand_count.js a b
+{ _: [ 'a', 'b' ], '$0': 'node ./demand_count.js' }
+$ ./demand_count.js a b c
+{ _: [ 'a', 'b', 'c' ], '$0': 'node ./demand_count.js' }
+</code></pre>
+<h2 id="user-content-even-more-shiver-me-timbers" class="deep-link"><a href="https://www.npmjs.com/package/yargs#even-more-shiver-me-timbers">EVEN MORE SHIVER ME TIMBERS!</a></h2>
+<p>default_singles.js:</p>
+<pre><code class="highlight javascript"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="comment line shebang js"><span>#!/usr/bin/env&nbsp;node</span></span></span></div><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;argv&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>yargs</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>default</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>x</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="constant numeric js"><span>10</span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>default</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>y</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="constant numeric js"><span>10</span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>argv</span></span></div><div class="line"><span class="source js"><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta brace round js"><span>(</span></span><span>argv</span><span class="meta delimiter method period js"><span>.</span></span><span class="support constant js"><span>x</span></span><span>&nbsp;</span><span class="keyword operator js"><span>+</span></span><span>&nbsp;argv</span><span class="meta delimiter method period js"><span>.</span></span><span class="support constant js"><span>y</span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div></pre></code></pre>
+<hr>
+<pre><code>$ ./default_singles.js -x 5
+15
+</code></pre>
+<p>default_hash.js:</p>
+<pre><code class="highlight javascript"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="comment line shebang js"><span>#!/usr/bin/env&nbsp;node</span></span></span></div><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;argv&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>yargs</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>default</span><span class="meta brace round js"><span>(</span></span><span class="meta brace curly js"><span>{</span></span><span>&nbsp;x&nbsp;</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="constant numeric js"><span>10</span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;y&nbsp;</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="constant numeric js"><span>10</span></span><span>&nbsp;</span><span class="meta brace curly js"><span>}</span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>argv</span></span></div><div class="line"><span class="source js"><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta brace round js"><span>(</span></span><span>argv</span><span class="meta delimiter method period js"><span>.</span></span><span class="support constant js"><span>x</span></span><span>&nbsp;</span><span class="keyword operator js"><span>+</span></span><span>&nbsp;argv</span><span class="meta delimiter method period js"><span>.</span></span><span class="support constant js"><span>y</span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div></pre></code></pre>
+<hr>
+<pre><code>$ ./default_hash.js -y 7
+17
+</code></pre>
+<h2 id="user-content-and-if-you-really-want-to-get-all-descriptive-about-it" class="deep-link"><a href="https://www.npmjs.com/package/yargs#and-if-you-really-want-to-get-all-descriptive-about-it">And if you really want to get all descriptive about it...</a></h2>
+<p>boolean_single.js</p>
+<pre><code class="highlight javascript"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="comment line shebang js"><span>#!/usr/bin/env&nbsp;node</span></span></span></div><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;argv&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>yargs</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>boolean</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>v</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>argv</span></span></div><div class="line"><span class="source js"><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span class="entity name type object js firebug"><span>console</span></span><span class="meta delimiter method period js"><span>.</span></span><span class="support constant dom js"><span>dir</span></span><span class="meta brace round js"><span>(</span></span><span>argv</span><span class="meta delimiter method period js"><span>.</span></span><span>v</span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span class="entity name type object js firebug"><span>console</span></span><span class="meta delimiter method period js"><span>.</span></span><span class="support constant dom js"><span>dir</span></span><span class="meta brace round js"><span>(</span></span><span>argv</span><span class="meta delimiter method period js"><span>.</span></span><span>_</span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div></pre></code></pre>
+<hr>
+<pre><code>$ ./boolean_single.js -v "me hearties" yo ho
+true
+[ 'me hearties', 'yo', 'ho' ]
+</code></pre>
+<p>boolean_double.js</p>
+<pre><code class="highlight javascript"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="comment line shebang js"><span>#!/usr/bin/env&nbsp;node</span></span></span></div><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;argv&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>yargs</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>boolean</span><span class="meta brace round js"><span>(</span></span><span class="meta brace square js"><span>[</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>x</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>y</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>z</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace square js"><span>]</span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>argv</span></span></div><div class="line"><span class="source js"><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span class="entity name type object js firebug"><span>console</span></span><span class="meta delimiter method period js"><span>.</span></span><span class="support constant dom js"><span>dir</span></span><span class="meta brace round js"><span>(</span></span><span class="meta brace square js"><span>[</span></span><span>&nbsp;argv</span><span class="meta delimiter method period js"><span>.</span></span><span class="support constant js"><span>x</span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;argv</span><span class="meta delimiter method period js"><span>.</span></span><span class="support constant js"><span>y</span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;argv</span><span class="meta delimiter method period js"><span>.</span></span><span>z&nbsp;</span><span class="meta brace square js"><span>]</span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span class="entity name type object js firebug"><span>console</span></span><span class="meta delimiter method period js"><span>.</span></span><span class="support constant dom js"><span>dir</span></span><span class="meta brace round js"><span>(</span></span><span>argv</span><span class="meta delimiter method period js"><span>.</span></span><span>_</span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div></pre></code></pre>
+<hr>
+<pre><code>$ ./boolean_double.js -x -z one two three
+[ true, false, true ]
+[ 'one', 'two', 'three' ]
+</code></pre>
+<h2 id="user-content-yargs-is-here-to-help-you" class="deep-link"><a href="https://www.npmjs.com/package/yargs#yargs-is-here-to-help-you">Yargs is here to help you...</a></h2>
+<p>Ye can describe parameters fer help messages and set aliases. Yargs figures
+out how ter format a handy help string automatically.</p>
+<p>line_count.js</p>
+<pre><code class="highlight javascript"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="comment line shebang js"><span>#!/usr/bin/env&nbsp;node</span></span></span></div><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;argv&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>yargs</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>usage</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>Usage:&nbsp;$0&nbsp;&lt;command&gt;&nbsp;[options]</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>command</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>count</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>Count&nbsp;the&nbsp;lines&nbsp;in&nbsp;a&nbsp;file</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>demand</span><span class="meta brace round js"><span>(</span></span><span class="constant numeric js"><span>1</span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>example</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>$0&nbsp;count&nbsp;-f&nbsp;foo.js</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>count&nbsp;the&nbsp;lines&nbsp;in&nbsp;the&nbsp;given&nbsp;file</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>demand</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>f</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>alias</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>f</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>file</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>nargs</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>f</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="constant numeric js"><span>1</span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>describe</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>f</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>Load&nbsp;a&nbsp;file</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>help</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>h</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>alias</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>h</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>help</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>epilog</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>copyright&nbsp;2015</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>argv</span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;</span></span></div><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;fs&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>fs</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;s&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;fs</span><span class="meta delimiter method period js"><span>.</span></span><span>createReadStream</span><span class="meta brace round js"><span>(</span></span><span>argv</span><span class="meta delimiter method period js"><span>.</span></span><span>file</span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;</span></span></div><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;lines&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="constant numeric js"><span>0</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>s</span><span class="meta delimiter method period js"><span>.</span></span><span>on</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>data</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="meta function js"><span class="storage type function js"><span>function</span></span><span>&nbsp;</span><span class="punctuation begin js"><span>(</span></span><span class="variable function js"><span>buf</span></span><span class="punctuation end js"><span>)</span></span></span><span>&nbsp;</span><span class="meta brace curly js"><span>{</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;lines&nbsp;</span><span class="keyword operator js"><span>+</span><span>=</span></span><span>&nbsp;buf</span><span class="meta delimiter method period js"><span>.</span></span><span class="support function js"><span>toString</span></span><span class="meta brace round js"><span>(</span><span>)</span></span><span class="meta delimiter method period js"><span>.</span></span><span class="support function js"><span>match</span></span><span class="meta brace round js"><span>(</span></span><span class="string regexp js"><span class="punctuation string begin js"><span>/</span></span><span class="constant character regexp"><span>\n</span></span><span class="punctuation string end js"><span>/</span></span><span>g</span></span><span class="meta brace round js"><span>)</span></span><span class="meta delimiter method period js"><span>.</span></span><span class="support constant js"><span>length</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span class="meta brace curly js"><span>}</span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;</span></span></div><div class="line"><span class="source js"><span>s</span><span class="meta delimiter method period js"><span>.</span></span><span>on</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>end</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="meta function js"><span class="storage type function js"><span>function</span></span><span>&nbsp;</span><span class="punctuation begin js"><span>(</span></span><span class="punctuation end js"><span>)</span></span></span><span>&nbsp;</span><span class="meta brace curly js"><span>{</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta brace round js"><span>(</span></span><span>lines</span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span class="meta brace curly js"><span>}</span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div></pre></code></pre>
+<hr>
+<pre><code>$ node line_count.js count
+Usage: node test.js &lt;command&gt; [options]
+
+Commands:
+  count    Count the lines in a file
+
+Options:
+  -f, --file  Load a file        [required]
+  -h, --help  Show help
+
+Examples:
+  node test.js count -f foo.js    count the lines in the given file
+
+copyright 2015
+
+Missing required arguments: f
+
+$ node line_count.js count --file line_count.js
+20
+
+$ node line_count.js count -f line_count.js
+20
+</code></pre>
+<h1 id="user-content-methods" class="deep-link"><a href="https://www.npmjs.com/package/yargs#methods">methods</a></h1>
+<p>By itself,</p>
+<pre><code class="highlight javascript"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>yargs</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span><span class="meta delimiter method period js"><span>.</span></span><span>argv</span></span></div></pre></code></pre>
+<p>will use <code>process.argv</code> array to construct the <code>argv</code> object.</p>
+<p>You can pass in the <code>process.argv</code> yourself:</p>
+<pre><code class="highlight javascript"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>yargs</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span><span>(</span></span><span class="meta brace square js"><span>[</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>-x</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>1</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>-y</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>2</span><span class="punctuation string end js"><span>'</span></span></span><span>&nbsp;</span><span class="meta brace square js"><span>]</span></span><span class="meta brace round js"><span>)</span></span><span class="meta delimiter method period js"><span>.</span></span><span>argv</span></span></div></pre></code></pre>
+<p>or use .parse() to do the same thing:</p>
+<pre><code class="highlight javascript"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>yargs</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span><span class="meta delimiter method period js"><span>.</span></span><span class="support function js"><span>parse</span></span><span class="meta brace round js"><span>(</span></span><span class="meta brace square js"><span>[</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>-x</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>1</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>-y</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>2</span><span class="punctuation string end js"><span>'</span></span></span><span>&nbsp;</span><span class="meta brace square js"><span>]</span></span><span class="meta brace round js"><span>)</span></span></span></div></pre></code></pre>
+<p>The rest of these methods below come in just before the terminating <code>.argv</code>.</p>
+<h2 id="user-content-alias-key-alias" class="deep-link"><a href="https://www.npmjs.com/package/yargs#alias-key-alias">.alias(key, alias)</a></h2>
+<p>Set key names as equivalent such that updates to a key will propagate to aliases
+and vice-versa.</p>
+<p>Optionally <code>.alias()</code> can take an object that maps keys to aliases.
+Each key of this object should be the canonical version of the option, and each
+value should be a string or an array of strings.</p>
+<h2 id="user-content-default-key-value-description" class="deep-link"><a href="https://www.npmjs.com/package/yargs#default-key-value-description">.default(key, value, [description])</a></h2>
+<p>Set <code>argv[key]</code> to <code>value</code> if no option was specified on <code>process.argv</code>.</p>
+<p>Optionally <code>.default()</code> can take an object that maps keys to default values.</p>
+<p>But wait, there's more! the default value can be a <code>function</code> which returns
+a value. The name of the function will be used in the usage string:</p>
+<pre><code class="highlight js"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;argv&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>yargs</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>default</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>random</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="meta function js"><span class="storage type function js"><span>function</span></span><span>&nbsp;</span><span class="entity name function js"><span>randomValue</span></span><span class="punctuation begin js"><span>(</span></span><span class="punctuation end js"><span>)</span></span></span><span>&nbsp;</span><span class="meta brace curly js"><span>{</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword control js"><span>return</span></span><span>&nbsp;</span><span class="support class js"><span>Math</span></span><span class="meta delimiter method period js"><span>.</span></span><span class="support function js"><span>random</span></span><span class="meta brace round js"><span>(</span><span>)</span></span><span>&nbsp;</span><span class="keyword operator js"><span>*</span></span><span>&nbsp;</span><span class="constant numeric js"><span>256</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;</span><span class="meta brace curly js"><span>}</span></span><span class="meta brace round js"><span>)</span></span><span class="meta delimiter method period js"><span>.</span></span><span>argv</span><span class="punctuation terminator statement js"><span>;</span></span></span></div></pre></code></pre>
+<p>Optionally, <code>description</code> can also be provided and will take precedence over
+displaying the value in the usage instructions:</p>
+<pre><code class="highlight js"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="meta delimiter method period js"><span>.</span></span><span>default</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>timeout</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="constant numeric js"><span>60000</span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>(one-minute)</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div></pre></code></pre>
+<h2 id="user-content-demand-key-msg-boolean" class="deep-link"><a href="https://www.npmjs.com/package/yargs#demand-key-msg-boolean">.demand(key, [msg | boolean])</a></h2>
+<h2 id="user-content-require-key-msg-boolean" class="deep-link"><a href="https://www.npmjs.com/package/yargs#require-key-msg-boolean">.require(key, [msg | boolean])</a></h2>
+<h2 id="user-content-required-key-msg-boolean" class="deep-link"><a href="https://www.npmjs.com/package/yargs#required-key-msg-boolean">.required(key, [msg | boolean])</a></h2>
+<h2 id="user-content-demand-count-max-msg" class="deep-link"><a href="https://www.npmjs.com/package/yargs#demand-count-max-msg">.demand(count, [max], [msg])</a></h2>
+<p>If <code>key</code> is a string, show the usage information and exit if <code>key</code> wasn't
+specified in <code>process.argv</code>.</p>
+<p>If <code>key</code> is a number, demand at least as many non-option arguments, which show
+up in <code>argv._</code>. A second number can also optionally be provided, which indicates
+the maximum number of non-option arguments.</p>
+<p>If <code>key</code> is an Array, demand each element.</p>
+<p>If a <code>msg</code> string is given, it will be printed when the argument is missing,
+instead of the standard error message. This is especially helpful for the non-option arguments in <code>argv._</code>.</p>
+<p>If a <code>boolean</code> value is given, it controls whether the option is demanded;
+this is useful when using <code>.options()</code> to specify command line parameters.</p>
+<h2 id="user-content-requiresarg-key" class="deep-link"><a href="https://www.npmjs.com/package/yargs#requiresarg-key">.requiresArg(key)</a></h2>
+<p>Specifies either a single option key (string), or an array of options that
+must be followed by option values. If any option value is missing, show the
+usage information and exit.</p>
+<p>The default behaviour is to set the value of any key not followed by an
+option value to <code>true</code>.</p>
+<h2 id="user-content-implies-x-y" class="deep-link"><a href="https://www.npmjs.com/package/yargs#implies-x-y">.implies(x, y)</a></h2>
+<p>Given the key <code>x</code> is set, it is required that the key <code>y</code> is set.</p>
+<p>implies can also accept an object specifying multiple implications.</p>
+<h2 id="user-content-describe-key-desc" class="deep-link"><a href="https://www.npmjs.com/package/yargs#describe-key-desc">.describe(key, desc)</a></h2>
+<p>Describe a <code>key</code> for the generated usage information.</p>
+<p>Optionally <code>.describe()</code> can take an object that maps keys to descriptions.</p>
+<h2 id="user-content-option-key-opt" class="deep-link"><a href="https://www.npmjs.com/package/yargs#option-key-opt">.option(key, opt)</a></h2>
+<h2 id="user-content-options-key-opt" class="deep-link"><a href="https://www.npmjs.com/package/yargs#options-key-opt">.options(key, opt)</a></h2>
+<p>Instead of chaining together <code>.alias().demand().default().describe().string()</code>, you can specify
+keys in <code>opt</code> for each of the chainable methods.</p>
+<p>For example:</p>
+<pre><code class="highlight javascript"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;argv&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>yargs</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>option</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>f</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="meta brace curly js"><span>{</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alias&nbsp;</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>file</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;demand</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="constant language boolean true js"><span>true</span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword control js"><span>default</span></span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>/etc/passwd</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;describe</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>x&nbsp;marks&nbsp;the&nbsp;spot</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>string</span><span class="punctuation string end js"><span>'</span></span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta brace curly js"><span>}</span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>argv</span></span></div><div class="line"><span class="source js"><span class="punctuation terminator statement js"><span>;</span></span></span></div></pre></code></pre>
+<p>is the same as</p>
+<pre><code class="highlight javascript"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;argv&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>yargs</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>alias</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>f</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>file</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>default</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>f</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>/etc/passwd</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>argv</span></span></div><div class="line"><span class="source js"><span class="punctuation terminator statement js"><span>;</span></span></span></div></pre></code></pre>
+<p>Optionally <code>.options()</code> can take an object that maps keys to <code>opt</code> parameters.</p>
+<pre><code class="highlight javascript"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;argv&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>yargs</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span class="support constant dom js"><span>options</span></span><span class="meta brace round js"><span>(</span></span><span class="meta brace curly js"><span>{</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>f</span><span class="punctuation string end js"><span>'</span></span></span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="meta brace curly js"><span>{</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alias</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>file</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;demand</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="constant language boolean true js"><span>true</span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword control js"><span>default</span></span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>/etc/passwd</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;describe</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>x&nbsp;marks&nbsp;the&nbsp;spot</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>string</span><span class="punctuation string end js"><span>'</span></span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta brace curly js"><span>}</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta brace curly js"><span>}</span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>argv</span></span></div><div class="line"><span class="source js"><span class="punctuation terminator statement js"><span>;</span></span></span></div></pre></code></pre>
+<h2 id="user-content-usage-message-opts" class="deep-link"><a href="https://www.npmjs.com/package/yargs#usage-message-opts">.usage(message, opts)</a></h2>
+<p>Set a usage message to show which commands to use. Inside <code>message</code>, the string
+<code>$0</code> will get interpolated to the current script name or node command for the
+present script similar to how <code>$0</code> works in bash or perl.</p>
+<p><code>opts</code> is optional and acts like calling <code>.options(opts)</code>.</p>
+<h2 id="user-content-command-cmd-desc-fn" class="deep-link"><a href="https://www.npmjs.com/package/yargs#command-cmd-desc-fn">.command(cmd, desc, [fn])</a></h2>
+<p>Document the commands exposed by your application.</p>
+<p>Use <code>desc</code> to provide a description for each command your application accepts (the
+values stored in <code>argv._</code>).  Set <code>desc</code> to <code>false</code> to create a hidden command.
+Hidden commands don't show up in the help output and aren't available for
+completion.</p>
+<p>Optionally, you can provide a handler <code>fn</code> which will be executed when
+a given command is provided. The handler will be executed with an instance
+of <code>yargs</code>, which can be used to compose nested commands.</p>
+<p>Here's an example of top-level and nested commands in action:</p>
+<pre><code class="highlight js"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;argv&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>yargs</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>usage</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>npm&nbsp;&lt;command&gt;</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>command</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>install</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>tis&nbsp;a&nbsp;mighty&nbsp;fine&nbsp;package&nbsp;to&nbsp;install</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>command</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>publish</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>shiver&nbsp;me&nbsp;timbers,&nbsp;should&nbsp;you&nbsp;be&nbsp;sharing&nbsp;all&nbsp;that</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="meta function js"><span class="storage type function js"><span>function</span></span><span>&nbsp;</span><span class="punctuation begin js"><span>(</span></span><span class="variable function js"><span>yargs</span></span><span class="punctuation end js"><span>)</span></span></span><span>&nbsp;</span><span class="meta brace curly js"><span>{</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;argv&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;yargs</span><span class="meta delimiter method period js"><span>.</span></span><span>option</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>f</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="meta brace curly js"><span>{</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alias</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>force</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>yar,&nbsp;it&nbsp;usually&nbsp;be&nbsp;a&nbsp;bad&nbsp;idea</span><span class="punctuation string end js"><span>'</span></span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta brace curly js"><span>}</span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>help</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>help</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>argv</span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;</span><span class="meta brace curly js"><span>}</span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>help</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>help</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>argv</span><span class="punctuation terminator statement js"><span>;</span></span></span></div></pre></code></pre>
+<h2 id="user-content-example-cmd-desc" class="deep-link"><a href="https://www.npmjs.com/package/yargs#example-cmd-desc">.example(cmd, desc)</a></h2>
+<p>Give some example invocations of your program. Inside <code>cmd</code>, the string
+<code>$0</code> will get interpolated to the current script name or node command for the
+present script similar to how <code>$0</code> works in bash or perl.
+Examples will be printed out as part of the help message.</p>
+<h2 id="user-content-epilogue-str" class="deep-link"><a href="https://www.npmjs.com/package/yargs#epilogue-str">.epilogue(str)</a></h2>
+<h2 id="user-content-epilog-str" class="deep-link"><a href="https://www.npmjs.com/package/yargs#epilog-str">.epilog(str)</a></h2>
+<p>A message to print at the end of the usage instructions, e.g.,</p>
+<pre><code class="highlight js"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;argv&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>yargs</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>epilogue</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>for&nbsp;more&nbsp;information,&nbsp;find&nbsp;our&nbsp;manual&nbsp;at&nbsp;</span><span class="markup underline link hyperlink"><span>http://example.com</span></span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div></pre></code></pre>
+<h2 id="user-content-check-fn" class="deep-link"><a href="https://www.npmjs.com/package/yargs#check-fn">.check(fn)</a></h2>
+<p>Check that certain conditions are met in the provided arguments.</p>
+<p><code>fn</code> is called with two arguments, the parsed <code>argv</code> hash and an array of options and their aliases.</p>
+<p>If <code>fn</code> throws or returns a non-truthy value, show the thrown error, usage information, and
+exit.</p>
+<h2 id="user-content-fail-fn" class="deep-link"><a href="https://www.npmjs.com/package/yargs#fail-fn">.fail(fn)</a></h2>
+<p>Method to execute when a failure occurs, rather then printing the failure message.</p>
+<p><code>fn</code> is called with the failure message that would have been printed.</p>
+<h2 id="user-content-boolean-key" class="deep-link"><a href="https://www.npmjs.com/package/yargs#boolean-key">.boolean(key)</a></h2>
+<p>Interpret <code>key</code> as a boolean. If a non-flag option follows <code>key</code> in
+<code>process.argv</code>, that string won't get set as the value of <code>key</code>.</p>
+<p><code>key</code> will default to <code>false</code>, unless an <code>default(key, undefined)</code> is
+explicitly set.</p>
+<p>If <code>key</code> is an Array, interpret all the elements as booleans.</p>
+<h2 id="user-content-string-key" class="deep-link"><a href="https://www.npmjs.com/package/yargs#string-key">.string(key)</a></h2>
+<p>Tell the parser logic not to interpret <code>key</code> as a number or boolean.
+This can be useful if you need to preserve leading zeros in an input.</p>
+<p>If <code>key</code> is an Array, interpret all the elements as strings.</p>
+<p><code>.string('_')</code> will result in non-hyphenated arguments being interpreted as strings,
+regardless of whether they resemble numbers.</p>
+<h2 id="user-content-array-key" class="deep-link"><a href="https://www.npmjs.com/package/yargs#array-key">.array(key)</a></h2>
+<p>Tell the parser to interpret <code>key</code> as an array. If <code>.array('foo')</code> is set,
+<code>--foo foo bar</code> will be parsed as <code>['foo', 'bar']</code> rather than as <code>'bar'</code>.</p>
+<h2 id="user-content-nargs-key-count" class="deep-link"><a href="https://www.npmjs.com/package/yargs#nargs-key-count">.nargs(key, count)</a></h2>
+<p>The number of arguments that should be consumed after a key. This can be a
+useful hint to prevent parsing ambiguity:</p>
+<pre><code class="highlight js"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;argv&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>yargs</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>nargs</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>token</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="constant numeric js"><span>1</span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span class="support function js"><span>parse</span></span><span class="meta brace round js"><span>(</span></span><span class="meta brace square js"><span>[</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>--token</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>-my-token</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace square js"><span>]</span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div></pre></code></pre>
+<p>parses as:</p>
+<p><code>{ _: [], token: '-my-token', '$0': 'node test' }</code></p>
+<p>Optionally <code>.nargs()</code> can take an object of <code>key</code>/<code>narg</code> pairs.</p>
+<h2 id="user-content-config-key-description" class="deep-link"><a href="https://www.npmjs.com/package/yargs#config-key-description">.config(key, [description])</a></h2>
+<p>Tells the parser that if the option specified by <code>key</code> is passed in, it
+should be interpreted as a path to a JSON config file. The file is loaded
+and parsed, and its properties are set as arguments. If present, the
+<code>description</code> parameter customizes the description of the config (<code>key</code>) option
+in the usage string.</p>
+<h2 id="user-content-wrap-columns" class="deep-link"><a href="https://www.npmjs.com/package/yargs#wrap-columns">.wrap(columns)</a></h2>
+<p>Format usage output to wrap at <code>columns</code> many columns.</p>
+<p>By default wrap will be set to <code>Math.min(80, windowWidth)</code>. Use <code>.wrap(null)</code> to
+specify no column limit.</p>
+<p><code>yargs.wrap(yargs.terminalWidth())</code> can be used to maximize the width
+of yargs' usage instructions.</p>
+<h2 id="user-content-strict" class="deep-link"><a href="https://www.npmjs.com/package/yargs#strict">.strict()</a></h2>
+<p>Any command-line argument given that is not demanded, or does not have a
+corresponding description, will be reported as an error.</p>
+<h2 id="user-content-help-option-description" class="deep-link"><a href="https://www.npmjs.com/package/yargs#help-option-description">.help([option, [description]])</a></h2>
+<p>Add an option (e.g., <code>--help</code>) that displays the usage string and exits the
+process. If present, the <code>description</code> parameter customises the description of
+the help option in the usage string.</p>
+<p>If invoked without parameters, <code>.help</code> returns the generated usage string.</p>
+<p>Example:</p>
+<pre><code><pre class="editor editor-colors"><div class="line"><span class="text"><span>var&nbsp;yargs&nbsp;=&nbsp;require("yargs")</span></span></div><div class="line"><span class="text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.usage("$0&nbsp;-operand1&nbsp;number&nbsp;-operand2&nbsp;number&nbsp;-operation&nbsp;[add|subtract]");</span></span></div><div class="line"><span class="text"><span>console.log(yargs.help());</span></span></div></pre></code></pre>
+<p>Later on, <code>argv</code> can be retrived with <code>yargs.argv</code></p>
+<h2 id="user-content-version-version-option-description" class="deep-link"><a href="https://www.npmjs.com/package/yargs#version-version-option-description">.version(version, [option], [description])</a></h2>
+<p>Add an option (e.g., <code>--version</code>) that displays the version number (given by the
+<code>version</code> parameter) and exits the process. If present, the <code>description</code>
+parameter customizes the description of the version option in the usage string.</p>
+<p>You can provide a <code>function</code> for version, rather than a string.
+This is useful if you want to use the version from your package.json:</p>
+<pre><code class="highlight js"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;argv&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>yargs</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span class="support constant dom js"><span>version</span></span><span class="meta brace round js"><span>(</span></span><span class="meta function js"><span class="storage type function js"><span>function</span></span><span class="punctuation begin js"><span>(</span></span><span class="punctuation end js"><span>)</span></span></span><span>&nbsp;</span><span class="meta brace curly js"><span>{</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword control js"><span>return</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>../package</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span><span class="meta delimiter method period js"><span>.</span></span><span class="support constant dom js"><span>version</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;</span><span class="meta brace curly js"><span>}</span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>argv</span><span class="punctuation terminator statement js"><span>;</span></span></span></div></pre></code></pre>
+<h2 id="user-content-showhelponfail-enable-message" class="deep-link"><a href="https://www.npmjs.com/package/yargs#showhelponfail-enable-message">.showHelpOnFail(enable, [message])</a></h2>
+<p>By default, yargs outputs a usage string if any error is detected. Use the
+<code>.showHelpOnFail</code> method to customize this behaviour. if <code>enable</code> is <code>false</code>,
+the usage string is not output. If the <code>message</code> parameter is present, this
+message is output after the error message.</p>
+<p>line_count.js</p>
+<pre><code class="highlight javascript"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="comment line shebang js"><span>#!/usr/bin/env&nbsp;node</span></span></span></div><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;argv&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>yargs</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>usage</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>Count&nbsp;the&nbsp;lines&nbsp;in&nbsp;a&nbsp;file.</span><span class="constant character js"><span>\n</span></span><span>Usage:&nbsp;$0</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>demand</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>f</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>alias</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>f</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>file</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>describe</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>f</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>Load&nbsp;a&nbsp;file</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>showHelpOnFail</span><span class="meta brace round js"><span>(</span></span><span class="constant language boolean false js"><span>false</span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="string quoted double js"><span class="punctuation string begin js"><span>"</span></span><span>Specify&nbsp;--help&nbsp;for&nbsp;available&nbsp;options</span><span class="punctuation string end js"><span>"</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>argv</span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;</span></span></div><div class="line"><span class="source js"><span class="comment line double-slash js"><span class="punctuation comment js"><span>//</span></span><span>&nbsp;etc.</span><span>&nbsp;</span></span></span></div></pre></code></pre>
+<hr>
+<pre><code>$ node line_count.js --file
+Missing argument value: f
+
+Specify --help for available options
+</code></pre>
+<h2 id="user-content-showhelp-consolelevel-error" class="deep-link"><a href="https://www.npmjs.com/package/yargs#showhelp-consolelevel-error">.showHelp(consoleLevel='error')</a></h2>
+<p>Print the usage data using the <a href="https://nodejs.org/api/console.html"><code>console</code></a> function <code>consoleLevel</code> for printing.</p>
+<p>Example:</p>
+<pre><code><pre class="editor editor-colors"><div class="line"><span class="text"><span>var&nbsp;yargs&nbsp;=&nbsp;require("yargs")</span></span></div><div class="line"><span class="text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.usage("$0&nbsp;-operand1&nbsp;number&nbsp;-operand2&nbsp;number&nbsp;-operation&nbsp;[add|subtract]");</span></span></div><div class="line"><span class="text"><span>yargs.showHelp();</span></span></div></pre></code></pre>
+<p>Or, to print the usage data to <code>stdout</code> instead, you can specify the use of <code>console.log</code>:</p>
+<pre><code><pre class="editor editor-colors"><div class="line"><span class="text"><span>yargs.showHelp("log");</span></span></div></pre></code></pre>
+<p>Later on, <code>argv</code> can be retrived with <code>yargs.argv</code></p>
+<h2 id="user-content-completion-cmd-description-fn" class="deep-link"><a href="https://www.npmjs.com/package/yargs#completion-cmd-description-fn">.completion(cmd, [description], [fn]);</a></h2>
+<p>Enable bash-completion shortcuts for commands and options.</p>
+<p><code>cmd</code>: when present in <code>argv._</code>, will result in the <code>.bashrc</code> completion script
+being outputted. To enable bash completions, concat the generated script to your
+<code>.bashrc</code>, or <code>.bash_profile</code>.</p>
+<p><code>description</code>: provide a description in your usage instructions for the command
+that generates bash completion scripts.</p>
+<p><code>fn</code>, rather than relying on yargs' default completion functionlity, which
+shiver me timbers is pretty awesome, you can provide your own completion
+method.</p>
+<pre><code class="highlight js"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;argv&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>yargs</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>completion</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>completion</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="meta function js"><span class="storage type function js"><span>function</span></span><span class="punctuation begin js"><span>(</span></span><span class="variable function js"><span>current</span></span><span>,&nbsp;</span><span class="variable function js"><span>argv</span></span><span class="punctuation end js"><span>)</span></span></span><span>&nbsp;</span><span class="meta brace curly js"><span>{</span></span></span></div><div class="line"><span class="source js"><span class="punctuation comment js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span class="comment line double-slash js"><span class="punctuation comment js"><span>//</span></span><span>&nbsp;'current'&nbsp;is&nbsp;the&nbsp;current&nbsp;command&nbsp;being&nbsp;completed.</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source js"><span class="punctuation comment js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span class="comment line double-slash js"><span class="punctuation comment js"><span>//</span></span><span>&nbsp;'argv'&nbsp;is&nbsp;the&nbsp;parsed&nbsp;arguments&nbsp;so&nbsp;far.</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source js"><span class="punctuation comment js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span class="comment line double-slash js"><span class="punctuation comment js"><span>//</span></span><span>&nbsp;simply&nbsp;return&nbsp;an&nbsp;array&nbsp;of&nbsp;completions.</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword control js"><span>return</span></span><span>&nbsp;</span><span class="meta brace square js"><span>[</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>foo</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>bar</span><span class="punctuation string end js"><span>'</span></span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta brace square js"><span>]</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;</span><span class="meta brace curly js"><span>}</span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>argv</span><span class="punctuation terminator statement js"><span>;</span></span></span></div></pre></code></pre>
+<p>But wait, there's more! you can provide asynchronous completions.</p>
+<pre><code class="highlight js"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;argv&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>yargs</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>completion</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>completion</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="meta function js"><span class="storage type function js"><span>function</span></span><span class="punctuation begin js"><span>(</span></span><span class="variable function js"><span>current</span></span><span>,&nbsp;</span><span class="variable function js"><span>argv</span></span><span>,&nbsp;</span><span class="variable function js"><span>done</span></span><span class="punctuation end js"><span>)</span></span></span><span>&nbsp;</span><span class="meta brace curly js"><span>{</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="support function js"><span>setTimeout</span></span><span class="meta brace round js"><span>(</span></span><span class="meta function js"><span class="storage type function js"><span>function</span></span><span class="punctuation begin js"><span>(</span></span><span class="punctuation end js"><span>)</span></span></span><span>&nbsp;</span><span class="meta brace curly js"><span>{</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;done</span><span class="meta brace round js"><span>(</span></span><span class="meta brace square js"><span>[</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>apple</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>banana</span><span class="punctuation string end js"><span>'</span></span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta brace square js"><span>]</span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta brace curly js"><span>}</span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="constant numeric js"><span>500</span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;</span><span class="meta brace curly js"><span>}</span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>argv</span><span class="punctuation terminator statement js"><span>;</span></span></span></div></pre></code></pre>
+<h2 id="user-content-showcompletionscript" class="deep-link"><a href="https://www.npmjs.com/package/yargs#showcompletionscript">.showCompletionScript()</a></h2>
+<p>Generate a bash completion script. Users of your application can install this
+script in their <code>.bashrc</code>, and yargs will provide completion shortcuts for
+commands and options.</p>
+<h2 id="user-content-exitprocess-enable" class="deep-link"><a href="https://www.npmjs.com/package/yargs#exitprocess-enable">.exitProcess(enable)</a></h2>
+<p>By default, yargs exits the process when the user passes a help flag, uses the <code>.version</code> functionality or when validation fails. Calling <code>.exitProcess(false)</code> disables this behavior, enabling further actions after yargs have been validated.</p>
+<h2 id="user-content-parse-args" class="deep-link"><a href="https://www.npmjs.com/package/yargs#parse-args">.parse(args)</a></h2>
+<p>Parse <code>args</code> instead of <code>process.argv</code>. Returns the <code>argv</code> object.</p>
+<h2 id="user-content-reset" class="deep-link"><a href="https://www.npmjs.com/package/yargs#reset">.reset()</a></h2>
+<p>Reset the argument object built up so far. This is useful for
+creating nested command line interfaces.</p>
+<pre><code class="highlight js"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;yargs&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>./yargs</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>usage</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>$0&nbsp;command</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>command</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>hello</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>hello&nbsp;command</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>command</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>world</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>world&nbsp;command</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>demand</span><span class="meta brace round js"><span>(</span></span><span class="constant numeric js"><span>1</span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>must&nbsp;provide&nbsp;a&nbsp;valid&nbsp;command</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;argv&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;yargs</span><span class="meta delimiter method period js"><span>.</span></span><span>argv</span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;command&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;argv</span><span class="meta delimiter method period js"><span>.</span></span><span>_</span><span class="meta brace square js"><span>[</span></span><span class="constant numeric js"><span>0</span></span><span class="meta brace square js"><span>]</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;</span></span></div><div class="line"><span class="source js"><span class="keyword control js"><span>if</span></span><span>&nbsp;</span><span class="meta brace round js"><span>(</span></span><span>command&nbsp;</span><span class="keyword operator js"><span>===</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>hello</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span><span>&nbsp;</span><span class="meta brace curly js"><span>{</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;yargs</span><span class="meta delimiter method period js"><span>.</span></span><span class="support function dom js"><span>reset</span></span><span class="meta brace round js"><span>(</span><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>usage</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>$0&nbsp;hello</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>help</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>h</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>example</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>$0&nbsp;hello</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>print&nbsp;the&nbsp;hello&nbsp;message!</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>argv</span></span></div><div class="line"><span class="source js"><span>&nbsp;</span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;</span><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>hello!</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span class="meta brace curly js"><span>}</span></span><span>&nbsp;</span><span class="keyword control js"><span>else</span></span><span>&nbsp;</span><span class="keyword control js"><span>if</span></span><span>&nbsp;</span><span class="meta brace round js"><span>(</span></span><span>command&nbsp;</span><span class="keyword operator js"><span>===</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>world</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span><span class="meta brace curly js"><span>{</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;yargs</span><span class="meta delimiter method period js"><span>.</span></span><span class="support function dom js"><span>reset</span></span><span class="meta brace round js"><span>(</span><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>usage</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>$0&nbsp;world</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>help</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>h</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>example</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>$0&nbsp;world</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>print&nbsp;the&nbsp;world&nbsp;message!</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta delimiter method period js"><span>.</span></span><span>argv</span></span></div><div class="line"><span class="source js"><span>&nbsp;</span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;</span><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>world!</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span class="meta brace curly js"><span>}</span></span><span>&nbsp;</span><span class="keyword control js"><span>else</span></span><span>&nbsp;</span><span class="meta brace curly js"><span>{</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;yargs</span><span class="meta delimiter method period js"><span>.</span></span><span class="support function js"><span>showHelp</span></span><span class="meta brace round js"><span>(</span><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span class="meta brace curly js"><span>}</span></span></span></div></pre></code></pre>
+<h2 id="user-content-argv" class="deep-link"><a href="https://www.npmjs.com/package/yargs#argv">.argv</a></h2>
+<p>Get the arguments as a plain old object.</p>
+<p>Arguments without a corresponding flag show up in the <code>argv._</code> array.</p>
+<p>The script name or node command is available at <code>argv.$0</code> similarly to how <code>$0</code>
+works in bash or perl.</p>
+<h1 id="user-content-parsing-tricks" class="deep-link"><a href="https://www.npmjs.com/package/yargs#parsing-tricks">parsing tricks</a></h1>
+<h2 id="user-content-stop-parsing" class="deep-link"><a href="https://www.npmjs.com/package/yargs#stop-parsing">stop parsing</a></h2>
+<p>Use <code>--</code> to stop parsing flags and stuff the remainder into <code>argv._</code>.</p>
+<pre><code>$ node examples/reflect.js -a 1 -b 2 -- -c 3 -d 4
+{ _: [ '-c', '3', '-d', '4' ],
+  '$0': 'node ./examples/reflect.js',
+  a: 1,
+  b: 2 }
+</code></pre>
+<h2 id="user-content-negate-fields" class="deep-link"><a href="https://www.npmjs.com/package/yargs#negate-fields">negate fields</a></h2>
+<p>If you want to explicity set a field to false instead of just leaving it
+undefined or to override a default you can do <code>--no-key</code>.</p>
+<pre><code>$ node examples/reflect.js -a --no-b
+{ _: [],
+  '$0': 'node ./examples/reflect.js',
+  a: true,
+  b: false }
+</code></pre>
+<h2 id="user-content-numbers" class="deep-link"><a href="https://www.npmjs.com/package/yargs#numbers">numbers</a></h2>
+<p>Every argument that looks like a number (<code>!isNaN(Number(arg))</code>) is converted to
+one. This way you can just <code>net.createConnection(argv.port)</code> and you can add
+numbers out of <code>argv</code> with <code>+</code> without having that mean concatenation,
+which is super frustrating.</p>
+<h2 id="user-content-duplicates" class="deep-link"><a href="https://www.npmjs.com/package/yargs#duplicates">duplicates</a></h2>
+<p>If you specify a flag multiple times it will get turned into an array containing
+all the values in order.</p>
+<pre><code>$ node examples/reflect.js -x 5 -x 8 -x 0
+{ _: [],
+  '$0': 'node ./examples/reflect.js',
+    x: [ 5, 8, 0 ] }
+</code></pre>
+<h2 id="user-content-dot-notation" class="deep-link"><a href="https://www.npmjs.com/package/yargs#dot-notation">dot notation</a></h2>
+<p>When you use dots (<code>.</code>s) in argument names, an implicit object path is assumed.
+This lets you organize arguments into nested objects.</p>
+<pre><code> $ node examples/reflect.js --foo.bar.baz=33 --foo.quux=5
+ { _: [],
+   '$0': 'node ./examples/reflect.js',
+     foo: { bar: { baz: 33 }, quux: 5 } }
+</code></pre>
+<h2 id="user-content-short-numbers" class="deep-link"><a href="https://www.npmjs.com/package/yargs#short-numbers">short numbers</a></h2>
+<p>Short numeric <code>head -n5</code> style argument work too:</p>
+<pre><code>$ node reflect.js -n123 -m456
+{ '3': true,
+  '6': true,
+  _: [],
+  '$0': 'node ./reflect.js',
+  n: 123,
+  m: 456 }
+</code></pre>
+<h1 id="user-content-installation" class="deep-link"><a href="https://www.npmjs.com/package/yargs#installation">installation</a></h1>
+<p>With <a href="http://github.com/isaacs/npm">npm</a>, just do:</p>
+<pre><code>npm install yargs
+</code></pre>
+<p>or clone this project on github:</p>
+<pre><code>git clone http://github.com/bcoe/yargs.git
+</code></pre>
+<p>To run the tests with npm, just do:</p>
+<pre><code>npm test
+</code></pre>
+<h1 id="user-content-inspired-by" class="deep-link"><a href="https://www.npmjs.com/package/yargs#inspired-by">inspired by</a></h1>
+<p>This module is loosely inspired by Perl's
+<a href="http://search.cpan.org/~photo/Getopt-Casual-0.13.1/Casual.pm">Getopt::Casual</a>.</p>
+
+  </div>
+
+</div>
+
+<div class="sidebar">
+
+    <div class="autoselect-wrapper npm-install icon-download">
+      <input type="text" value="npm install yargs" readonly="">
+    </div>
+
+	<ul class="box">
+
+      <li class="last-publisher">
+        <a href="https://www.npmjs.com/~bcoe">
+          <img src="./yargs_files/61a3135f4238c5db60ca13b6d4446fa0" alt="bcoe">
+          <span>bcoe</span>
+        </a>
+          published
+          <span data-date="2015-07-06T06:04:54.969Z" data-date-format="relative">a week ago</span>
+      </li>
+
+    <li>
+      <strong>3.15.0</strong>
+      is the latest
+        of 60 releases
+    </li>
+
+      <li>
+        <a href="https://github.com/bcoe/yargs">github.com/bcoe/yargs</a>
+      </li>
+
+
+      <li>
+          <a href="http://opensource.org/licenses/MIT">MIT</a>
+        <span> license</span>
+      </li>
+
+  </ul>
+
+    <h3 title="collaborators">
+        <a href="https://www.npmjs.com/package/yargs/access">Collaborators</a>
+    </h3>
+
+    <ul class="humans collaborators">
+        <li>
+          <a href="https://www.npmjs.com/~chevex" rel="tipsy" original-title="chevex">
+            <img src="./yargs_files/61ee1ef42c85803b7cdb06ffd476404a" alt="chevex">
+          </a>
+        </li>
+        <li>
+          <a href="https://www.npmjs.com/~bcoe" rel="tipsy" original-title="bcoe">
+            <img src="./yargs_files/463ec992a0ae0613c917f3513aadac23" alt="bcoe">
+          </a>
+        </li>
+        <li>
+          <a href="https://www.npmjs.com/~nylen" rel="tipsy" original-title="nylen">
+            <img src="./yargs_files/0c4d46844039ba935f69208615e9010c" alt="nylen">
+          </a>
+        </li>
+
+
+    </ul>
+
+  <h3>Stats</h3>
+  <ul class="box">
+
+      <li>
+        <strong class="pretty-number daily-downloads">155,128</strong>
+        downloads in the last day
+      </li>
+      <li>
+        <strong class="pretty-number weekly-downloads">851,604</strong>
+        downloads in the last week
+      </li>
+      <li>
+        <strong class="pretty-number monthly-downloads">3,532,040</strong>
+        downloads in the last month
+      </li>
+
+      <li id="issues" data-ghapi="https://api.github.com/repos/bcoe/yargs">
+        <span class="original" style="display: none;">Have an issue? <a href="https://github.com/bcoe/yargs/issues">19 open issues</a></span>
+          <span class="enhanced" style="">
+            <a href="https://github.com/bcoe/yargs/issues">19 open issues</a> on GitHub
+          </span>
+      </li>
+
+      <li id="pull_requests" style="">
+        <a href="https://github.com/bcoe/yargs/pulls">One open pull request</a> on GitHub
+      </li>
+
+  </ul>
+
+  <h3>Keywords</h3>
+  <p class="list-of-links">
+        <a href="https://www.npmjs.com/browse/keyword/command">command</a>, 
+        <a href="https://www.npmjs.com/browse/keyword/cli">cli</a>, 
+        <a href="https://www.npmjs.com/browse/keyword/parsing">parsing</a>, 
+        <a href="https://www.npmjs.com/browse/keyword/parser">parser</a>, 
+        <a href="https://www.npmjs.com/browse/keyword/option">option</a>, 
+        <a href="https://www.npmjs.com/browse/keyword/args">args</a>, 
+        <a href="https://www.npmjs.com/browse/keyword/argument">argument</a>
+  </p>
+
+  <h3>Dependencies (4)</h3>
+  <p class="list-of-links">
+          <a href="https://www.npmjs.com/package/window-size">window-size</a>,
+          <a href="https://www.npmjs.com/package/decamelize">decamelize</a>,
+          <a href="https://www.npmjs.com/package/cliui">cliui</a>,
+                <a href="https://www.npmjs.com/package/camelcase">camelcase</a>
+  </p>
+
+    <h3><a href="https://www.npmjs.com/browse/depended/yargs">Dependents</a></h3>
+    <p class="list-of-links dependents">
+
+          <a href="https://www.npmjs.com/package/sc-gulp-tasks">sc-gulp-tasks</a>,
+        
+          <a href="https://www.npmjs.com/package/react-native-vector-icons">react-native-vector-icons</a>,
+        
+          <a href="https://www.npmjs.com/package/sequelize-cli">sequelize-cli</a>,
+        
+          <a href="https://www.npmjs.com/package/gulp-offline">gulp-offline</a>,
+        
+          <a href="https://www.npmjs.com/package/digs-dev">digs-dev</a>,
+        
+          <a href="https://www.npmjs.com/package/uglify-js">uglify-js</a>,
+        
+          <a href="https://www.npmjs.com/package/tix-cli">tix-cli</a>,
+        
+          <a href="https://www.npmjs.com/package/esrislurp">esrislurp</a>,
+        
+          <a href="https://www.npmjs.com/package/electron-compile">electron-compile</a>,
+        
+          <a href="https://www.npmjs.com/package/rocky-cli">rocky-cli</a>,
+        
+          <a href="https://www.npmjs.com/package/netsells-gulp">netsells-gulp</a>,
+        
+          <a href="https://www.npmjs.com/package/nicest">nicest</a>,
+        
+          <a href="https://www.npmjs.com/package/registry-static">registry-static</a>,
+        
+          <a href="https://www.npmjs.com/package/outdated">outdated</a>,
+        
+          <a href="https://www.npmjs.com/package/gulp-zkflow-angular">gulp-zkflow-angular</a>,
+        
+          <a href="https://www.npmjs.com/package/rocky">rocky</a>,
+        
+          <a href="https://www.npmjs.com/package/node-gcm-server">node-gcm-server</a>,
+        
+          <a href="https://www.npmjs.com/package/http-master">http-master</a>,
+        
+          <a href="https://www.npmjs.com/package/aglio">aglio</a>,
+        
+          <a href="https://www.npmjs.com/package/shipit-nvm">shipit-nvm</a>,
+        
+          <a href="https://www.npmjs.com/package/npme">npme</a>,
+        
+          <a href="https://www.npmjs.com/package/machine-as-script">machine-as-script</a>,
+        
+          <a href="https://www.npmjs.com/package/vega">vega</a>,
+        
+          <a href="https://www.npmjs.com/package/shrvr">shrvr</a>,
+        
+          <a href="https://www.npmjs.com/package/static-pipeline">static-pipeline</a>,
+        
+          <a href="https://www.npmjs.com/package/usemin-cli">usemin-cli</a>,
+        
+          <a href="https://www.npmjs.com/package/jsoql">jsoql</a>,
+        
+          <a href="https://www.npmjs.com/package/sc5-styleguide">sc5-styleguide</a>,
+        
+          <a href="https://www.npmjs.com/package/fh-dev-tools">fh-dev-tools</a>,
+        
+          <a href="https://www.npmjs.com/package/shisha">shisha</a>,
+        
+          <a href="https://www.npmjs.com/package/gulp-zilla">gulp-zilla</a>,
+        
+          <a href="https://www.npmjs.com/package/fireplan">fireplan</a>,
+        
+          <a href="https://www.npmjs.com/package/docker-helpers">docker-helpers</a>,
+        
+          <a href="https://www.npmjs.com/package/orientjs">orientjs</a>,
+        
+          <a href="https://www.npmjs.com/package/json2dts">json2dts</a>,
+        
+          <a href="https://www.npmjs.com/package/hott">hott</a>,
+        
+          <a href="https://www.npmjs.com/package/sm-log-exporter">sm-log-exporter</a>,
+        
+          <a href="https://www.npmjs.com/package/sm-topline-stats">sm-topline-stats</a>,
+        
+          <a href="https://www.npmjs.com/package/json-server">json-server</a>,
+        
+          <a href="https://www.npmjs.com/package/pdftojson">pdftojson</a>,
+        
+          <a href="https://www.npmjs.com/package/rna">rna</a>,
+        
+          <a href="https://www.npmjs.com/package/qa-tools-commons">qa-tools-commons</a>,
+        
+          <a href="https://www.npmjs.com/package/node-inspector">node-inspector</a>,
+        
+          <a href="https://www.npmjs.com/package/metalint">metalint</a>,
+        
+          <a href="https://www.npmjs.com/package/fh-fhc">fh-fhc</a>,
+        
+          <a href="https://www.npmjs.com/package/nested-yargs">nested-yargs</a>,
+        
+          <a href="https://www.npmjs.com/package/domedash-cli">domedash-cli</a>,
+        
+          <a href="https://www.npmjs.com/package/@stephenbunch/buildpack">@stephenbunch/buildpack</a>,
+        
+          <a href="https://www.npmjs.com/package/bower-files">bower-files</a>,
+                  <a href="https://www.npmjs.com/package/shipit-captain">shipit-captain</a>,
+        <a href="https://www.npmjs.com/browse/depended/yargs">and 1097 more</a>
+    </p>
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "yargs",
+      "description": "Light-weight option parsing with an argv hash. No optstrings attached.",
+      "url": "https://www.npmjs.com/package/yargs",
+      "keywords": "command,cli,parsing,parser,option,args,argument",
+      "applicationCategory": "DeveloperApplication",
+      "offers": {
+         "@type": "Offer",
+         "price": "0.00"
+      }
+    }
+  </script>
+
+  <div class="hiring-container" data-template="sidebar"><div class="ad">
+  <p>
+    <a href="http://labs.ft.com/jobs/" title="FTLabs">FTLabs</a> is hiring.
+    <a class="quiet" href="https://www.npmjs.com/whoshiring">View more…</a>
+  </p>
+</div></div>
+
+</div>
+
+
+  </div>
+
+  <footer>
+
+    <div class="container">
+
+      <ul class="columnar">
+        <li>
+          <h3>You Need Help</h3>
+          <ul class="links">
+            <li><a href="https://docs.npmjs.com/">Documentation</a></li>
+            <li><a href="https://www.npmjs.com/support">Support / Contact Us</a></li>
+            <li><a href="http://status.npmjs.org/">Registry Status</a></li>
+            <li><a href="https://github.com/npm/newww/issues">Website Issues</a></li>
+            <li><a href="https://github.com/npm/npm/issues">CLI Issues</a></li>
+            <li><a href="https://www.npmjs.com/security">Security</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <h3>About npm</h3>
+          <ul class="links">
+            <li><a href="https://www.npmjs.com/about">About npm, Inc</a></li>
+            <li><a href="https://www.npmjs.com/jobs">Jobs</a></li>
+            <li><a href="https://www.npmjs.com/private-modules">npm private modules</a></li>
+            <li><a href="http://blog.npmjs.org/">Blog</a></li>
+            <li><a href="https://twitter.com/npmjs">Twitter</a></li>
+            <li><a href="https://github.com/npm">GitHub</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <h3>Legal Stuff</h3>
+          <ul class="links">
+            <li><a href="https://www.npmjs.com/policies/conduct">Code of Conduct</a></li>
+            <li><a href="https://www.npmjs.com/policies/disputes">Package Name Disputes</a></li>
+            <li><a href="https://www.npmjs.com/policies/npm-license">npm License</a></li>
+            <li><a href="https://www.npmjs.com/policies/privacy">Privacy Policy</a></li>
+            <li><a href="https://www.npmjs.com/policies/receiving-reports">Reporting Abuse</a></li>
+            <li><a href="https://www.npmjs.com/policies/trademark">Trademark Policy</a></li>
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+
+    <div class="container centered">
+      <a href="https://www.npmjs.com/" id="npm-loves-you">
+        npm loves you
+      </a>
+    </div>
+
+  </footer>
+  
+
+
+
+<!-- pid=22014 6537654942f9443c635c3fec1a18e4fb9ea362b1 https://www.npmjs.com www-9-west.internal.npmjs.com  -->
+<div class="autocomplete-suggestions" style="position: absolute; display: none; width: 533px; max-height: 400px; z-index: 9999;"></div><script id="hiddenlpsubmitdiv" style="display: none;"></script><script>try{for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){ var lastpass_f = document.forms[lastpass_iter]; if(typeof(lastpass_f.lpsubmitorig2)=="undefined"){ lastpass_f.lpsubmitorig2 = lastpass_f.submit; if (typeof(lastpass_f.lpsubmitorig2)=='object'){ continue;}lastpass_f.submit = function(){ var form=this; var customEvent = document.createEvent("Event"); customEvent.initEvent("lpCustomEvent", true, true); var d = document.getElementById("hiddenlpsubmitdiv"); if (d) {for(var i = 0; i < document.forms.length; i++){ if(document.forms[i]==form){ if (typeof(d.innerText) != 'undefined') { d.innerText=i.toString(); } else { d.textContent=i.toString(); } } } d.dispatchEvent(customEvent); }form.lpsubmitorig2(); } } }}catch(e){}</script></body></html>
