@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)https://www.npmjs.com/package/colors -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">.autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; cursor: default }
+.autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
+.autocomplete-selected { background: #F0F0F0; }
+.autocomplete-suggestions strong { font-weight: bold; }
+#powered-by-constructor-io { font-size: 0.8em; text-align:right; background-color:rgb(255,255,192); font-family:sans-serif; padding: 4px }
+.autocomplete-suggestion-image { float:left; padding-right: 10px }
+#autocomplete-direct-results:before { content:'Products' }
+#autocomplete-search-suggestions:before { content:'Search Suggestions' }</style>
+  <title>colors</title>
+
+    <meta name="description" content="get colors in your node.js console">
+    <meta name="keywords" content="colors,terminal,ansi">
+    <meta name="twitter:url" content="https://www.npmjs.com/package/colors">
+    <meta name="twitter:title" content="npm: colors">
+    <meta name="twitter:description" content="get colors in your node.js console">
+
+  <meta charset="utf-8">
+  <meta http-equiv="cleartype" content="on">
+
+  <meta name="apple-mobile-web-app-capable" content="no">
+  <meta name="description" content="npm is the package manager for javascript">
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,initial-scale=1,user-scalable=yes">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-icon-180x180.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-startup-image-1024x748.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-startup-image-1536x2008.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-startup-image-2048x1496.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-startup-image-320x460.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-startup-image-640x1096.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-startup-image-640x920.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-startup-image-768x1004.png">
+  <link rel="icon" type="image/png" href="https://www.npmjs.com/static/images/touch-icons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://www.npmjs.com/static/images/touch-icons/favicon-230x230.png" sizes="230x230">
+  <link rel="icon" type="image/png" href="https://www.npmjs.com/static/images/touch-icons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="https://www.npmjs.com/static/images/touch-icons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://www.npmjs.com/static/images/touch-icons/coast-228x228.png" sizes="228x228">
+  <link rel="icon" type="image/png" href="https://www.npmjs.com/static/images/touch-icons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="https://www.npmjs.com/static/images/touch-icons/manifest.json">
+  <link rel="shortcut icon" href="https://www.npmjs.com/static/images/touch-icons/favicon.ico">
+  <link rel="yandex-tableau-widget" href="https://www.npmjs.com/static/images/touch-icons/yandex-browser-manifest.json">
+  <meta property="og:image" content="https://www.npmjs.com/static/images/touch-icons/open-graph.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="msapplication-TileColor" content="#cb3837">
+  <meta name="msapplication-TileImage" content="/static/images/touch-icons/mstile-144x144.png">
+  <meta name="msapplication-config" content="/static/images/touch-icons/browserconfig.xml">
+  <meta name="theme-color" content="#cb3837">
+
+  <link rel="canonical" href="./colors_files/colors.html">
+  <link rel="stylesheet" media="all" href="https://www.npmjs.com/static/css/index.css">
+  <link rel="search" type="application/opensearchdescription+xml" href="https://www.npmjs.com/opensearch.xml" title="npm">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700">
+
+  <script id="hs-analytics" src="./colors_files/419727.js"></script><script async="" src="./colors_files/analytics.js"></script><script defer="" src="./colors_files/index.js"></script>
+  <script defer="" src="./colors_files/vendor.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebSite" data-crumb="eBzVodycHqfauL9zmJ8Q7qX8RXxqNLfpppIbUTD0LSS">
+  <meta itemprop="url" content="https://www.npmjs.com/">
+
+  <div id="notification-banner" style="">
+    <div class="container">
+      <hgroup>
+        <a href="https://www.npmjs.com/private-modules" data-event-trigger="click" data-event-name="private-modules-banner-signup-via-wombat">
+          <img src="./colors_files/wombat-by-night.svg" alt="night wombat">
+        </a>
+        <h2>private npm is here.</h2>
+        <h3>publish unlimited private modules for just $7/month</h3>
+      </hgroup>
+      <a class="button" href="https://www.npmjs.com/private-modules" data-event-trigger="click" data-event-name="private-modules-banner-signup">sign up</a>
+      <a class="button button-subtle banner-close" data-event-trigger="click" data-event-name="private-modules-banner-no-thanks">no thanks</a>
+    </div>
+  </div>
+
+  <nav>
+    <div class="container">
+      <a href="https://www.npmjs.com/package/colors#" id="npm-expansions" data-event-trigger="click" data-event-name="npm-expansions">Nuclear-Powered Malevolence</a>
+      <a href="https://www.npmjs.com/private-modules" data-event-trigger="click" data-event-name="private-modules-nav-link">npm private modules</a>
+      <a href="https://www.npmjs.com/enterprise">npm Enterprise</a>
+      <a href="https://docs.npmjs.com/">documentation</a>
+      <a href="http://blog.npmjs.org/?__hstc=72727564.934cdf4269ff4157a854d184788e7e3a.1432775606818.1436024681182.1437053324604.4&__hssc=72727564.3.1437053324604&__hsfp=1831511499">blog</a>
+      <a href="https://www.npmjs.com/npm-weekly">npm weekly</a>
+      <a href="https://www.npmjs.com/jobs">jobs</a>
+      <a href="https://www.npmjs.com/support">support</a>
+    </div>
+  </nav>
+
+  <header>
+    <div class="container">
+      <a href="https://www.npmjs.com/" id="npm-logo"><img src="./colors_files/npm-logo.svg" alt="npm logo"></a>
+
+      <div id="user-info" class="anonymous">
+          <a href="https://www.npmjs.com/login"><img src="./colors_files/wombat-avatar-small.png"></a>
+          <ul class="single">
+            <li><a href="https://www.npmjs.com/signup">sign up</a> or <a href="https://www.npmjs.com/login">log in</a></li>
+          </ul>
+
+      </div>
+
+      <form id="npm-search" action="https://www.npmjs.com/search" method="get" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">
+        <meta itemprop="target" content="https://www.npmjs.com/search?q={q}">
+        <input name="q" value="" type="search" id="site-search" placeholder="find packages" tabindex="1" autocorrect="off" autocapitalize="off" itemprop="query-input" autocomplete="off">
+        <input type="submit" id="site-search-submit">
+      </form>
+
+    </div>
+  </header>
+
+  <div class="container content">
+    
+<div class="content-column">
+
+  <h1 class="package-name">
+    <a href="./colors_files/colors.html" class="active">colors</a>
+      <i class="icon-public"></i>
+  </h1>
+  <p class="package-description">get colors in your node.js console</p>
+
+  <form class="star">
+    <input type="hidden" name="name" value="colors">
+    <input id="star-input" type="checkbox" name="isStarred" value="true">
+    <label for="star-input" class="icon-star"></label>
+    <div class="honey">
+      <label>If you are a robot, enter text here</label>
+      <input type="text" name="honey">
+    </div>
+    
+      <input type="hidden" name="crumb" value="eBzVodycHqfauL9zmJ8Q7qX8RXxqNLfpppIbUTD0LSS">
+  </form>
+
+  <div id="readme" class="markdown">
+      <h1 class="package-name-redundant">colors.js <a href="https://travis-ci.org/Marak/colors.js"><img src="./colors_files/colors.js.svg" class="badge"></a></h1>
+<h2 id="user-content-get-color-and-style-in-your-node-js-console" class="deep-link"><a href="https://www.npmjs.com/package/colors#get-color-and-style-in-your-node-js-console">get color and style in your node.js console</a></h2>
+<p><img src="./colors_files/colors.png"></p>
+<h2 id="user-content-installation" class="deep-link"><a href="https://www.npmjs.com/package/colors#installation">Installation</a></h2>
+<pre><code>npm install colors
+</code></pre>
+<h2 id="user-content-colors-and-styles" class="deep-link"><a href="https://www.npmjs.com/package/colors#colors-and-styles">colors and styles!</a></h2>
+<h3 id="user-content-text-colors" class="deep-link"><a href="https://www.npmjs.com/package/colors#text-colors">text colors</a></h3>
+<ul>
+<li>black</li>
+<li>red</li>
+<li>green</li>
+<li>yellow</li>
+<li>blue</li>
+<li>magenta</li>
+<li>cyan</li>
+<li>white</li>
+<li>gray</li>
+<li>grey</li>
+</ul>
+<h3 id="user-content-background-colors" class="deep-link"><a href="https://www.npmjs.com/package/colors#background-colors">background colors</a></h3>
+<ul>
+<li>bgBlack</li>
+<li>bgRed</li>
+<li>bgGreen</li>
+<li>bgYellow</li>
+<li>bgBlue</li>
+<li>bgMagenta</li>
+<li>bgCyan</li>
+<li>bgWhite</li>
+</ul>
+<h3 id="user-content-styles" class="deep-link"><a href="https://www.npmjs.com/package/colors#styles">styles</a></h3>
+<ul>
+<li>reset</li>
+<li>bold</li>
+<li>dim</li>
+<li>italic</li>
+<li>underline</li>
+<li>inverse</li>
+<li>hidden</li>
+<li>strikethrough</li>
+</ul>
+<h3 id="user-content-extras" class="deep-link"><a href="https://www.npmjs.com/package/colors#extras">extras</a></h3>
+<ul>
+<li>rainbow</li>
+<li>zebra</li>
+<li>america</li>
+<li>trap</li>
+<li>random</li>
+</ul>
+<h2 id="user-content-usage" class="deep-link"><a href="https://www.npmjs.com/package/colors#usage">Usage</a></h2>
+<p>By popular demand, <code>colors</code> now ships with two types of usages!</p>
+<p>The super nifty way</p>
+<pre><code class="highlight js"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;colors&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>colors</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;</span></span></div><div class="line"><span class="source js"><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>hello</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter method period js"><span>.</span></span><span>green</span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span><span>&nbsp;</span><span class="comment line double-slash js"><span class="punctuation comment js"><span>//</span></span><span>&nbsp;outputs&nbsp;green&nbsp;text</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source js"><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>i&nbsp;like&nbsp;cake&nbsp;and&nbsp;pies</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter method period js"><span>.</span></span><span>underline</span><span class="meta delimiter method period js"><span>.</span></span><span>red</span><span class="meta brace round js"><span>)</span></span><span>&nbsp;</span><span class="comment line double-slash js"><span class="punctuation comment js"><span>//</span></span><span>&nbsp;outputs&nbsp;red&nbsp;underlined&nbsp;text</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source js"><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>inverse&nbsp;the&nbsp;color</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter method period js"><span>.</span></span><span>inverse</span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span><span>&nbsp;</span><span class="comment line double-slash js"><span class="punctuation comment js"><span>//</span></span><span>&nbsp;inverses&nbsp;the&nbsp;color</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source js"><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>OMG&nbsp;Rainbows!</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter method period js"><span>.</span></span><span>rainbow</span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span><span>&nbsp;</span><span class="comment line double-slash js"><span class="punctuation comment js"><span>//</span></span><span>&nbsp;rainbow</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source js"><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>Run&nbsp;the&nbsp;trap</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter method period js"><span>.</span></span><span>trap</span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span><span>&nbsp;</span><span class="comment line double-slash js"><span class="punctuation comment js"><span>//</span></span><span>&nbsp;Drops&nbsp;the&nbsp;bass</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;</span></span></div></pre></code></pre>
+<p>or a slightly less nifty way which doesn't extend <code>String.prototype</code></p>
+<pre><code class="highlight js"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;colors&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>colors/safe</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;</span></span></div><div class="line"><span class="source js"><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta brace round js"><span>(</span></span><span>colors</span><span class="meta delimiter method period js"><span>.</span></span><span>green</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>hello</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span><span>&nbsp;</span><span class="comment line double-slash js"><span class="punctuation comment js"><span>//</span></span><span>&nbsp;outputs&nbsp;green&nbsp;text</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source js"><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta brace round js"><span>(</span></span><span>colors</span><span class="meta delimiter method period js"><span>.</span></span><span>red</span><span class="meta delimiter method period js"><span>.</span></span><span>underline</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>i&nbsp;like&nbsp;cake&nbsp;and&nbsp;pies</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span><span>)</span></span><span>&nbsp;</span><span class="comment line double-slash js"><span class="punctuation comment js"><span>//</span></span><span>&nbsp;outputs&nbsp;red&nbsp;underlined&nbsp;text</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source js"><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta brace round js"><span>(</span></span><span>colors</span><span class="meta delimiter method period js"><span>.</span></span><span>inverse</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>inverse&nbsp;the&nbsp;color</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span><span>&nbsp;</span><span class="comment line double-slash js"><span class="punctuation comment js"><span>//</span></span><span>&nbsp;inverses&nbsp;the&nbsp;color</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source js"><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta brace round js"><span>(</span></span><span>colors</span><span class="meta delimiter method period js"><span>.</span></span><span>rainbow</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>OMG&nbsp;Rainbows!</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span><span>&nbsp;</span><span class="comment line double-slash js"><span class="punctuation comment js"><span>//</span></span><span>&nbsp;rainbow</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source js"><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta brace round js"><span>(</span></span><span>colors</span><span class="meta delimiter method period js"><span>.</span></span><span>trap</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>Run&nbsp;the&nbsp;trap</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span><span>&nbsp;</span><span class="comment line double-slash js"><span class="punctuation comment js"><span>//</span></span><span>&nbsp;Drops&nbsp;the&nbsp;bass</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;</span></span></div></pre></code></pre>
+<p>I prefer the first way. Some people seem to be afraid of extending <code>String.prototype</code> and prefer the second way.</p>
+<p>If you are writing good code you will never have an issue with the first approach. If you really don't want to touch <code>String.prototype</code>, the second usage will not touch <code>String</code> native object.</p>
+<h2 id="user-content-disabling-colors" class="deep-link"><a href="https://www.npmjs.com/package/colors#disabling-colors">Disabling Colors</a></h2>
+<p>To disable colors you can pass the following arguments in the command line to your application:</p>
+<pre><code class="highlight bash"><pre class="editor editor-colors"><div class="line"><span class="text"><span>node&nbsp;myapp.js&nbsp;--no-color</span></span></div></pre></code></pre>
+<h2>Console.log <a href="http://nodejs.org/docs/latest/api/console.html#console_console_log_data">string substitution</a></h2>
+<pre><code class="highlight js"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;name&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>Marak</span><span class="punctuation string end js"><span>'</span></span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta brace round js"><span>(</span></span><span>colors</span><span class="meta delimiter method period js"><span>.</span></span><span>green</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>Hello&nbsp;%s</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;name</span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span class="comment line double-slash js"><span class="punctuation comment js"><span>//</span></span><span>&nbsp;outputs&nbsp;-&gt;&nbsp;'Hello&nbsp;Marak'</span><span>&nbsp;</span></span></span></div></pre></code></pre>
+<h2 id="user-content-custom-themes" class="deep-link"><a href="https://www.npmjs.com/package/colors#custom-themes">Custom themes</a></h2>
+<h3 id="user-content-using-standard-api" class="deep-link"><a href="https://www.npmjs.com/package/colors#using-standard-api">Using standard API</a></h3>
+<pre><code class="highlight js"><pre class="editor editor-colors"><div class="line"><span class="source js"><span>&nbsp;</span></span></div><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;colors&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>colors</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;</span></span></div><div class="line"><span class="source js"><span>colors</span><span class="meta delimiter method period js"><span>.</span></span><span>setTheme</span><span class="meta brace round js"><span>(</span></span><span class="meta brace curly js"><span>{</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;silly</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>rainbow</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;input</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>grey</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;verbose</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>cyan</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;prompt</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>grey</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;info</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>green</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;data</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>grey</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;help</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>cyan</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;warn</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>yellow</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;debug</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>blue</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;error</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>red</span><span class="punctuation string end js"><span>'</span></span></span></span></div><div class="line"><span class="source js"><span class="meta brace curly js"><span>}</span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;</span></span></div><div class="line"><span class="source js"><span class="comment line double-slash js"><span class="punctuation comment js"><span>//</span></span><span>&nbsp;outputs&nbsp;red&nbsp;text</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source js"><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted double js"><span class="punctuation string begin js"><span>"</span></span><span>this&nbsp;is&nbsp;an&nbsp;error</span><span class="punctuation string end js"><span>"</span></span></span><span class="support function js firebug"><span>.error</span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;</span></span></div><div class="line"><span class="source js"><span class="comment line double-slash js"><span class="punctuation comment js"><span>//</span></span><span>&nbsp;outputs&nbsp;yellow&nbsp;text</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source js"><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted double js"><span class="punctuation string begin js"><span>"</span></span><span>this&nbsp;is&nbsp;a&nbsp;warning</span><span class="punctuation string end js"><span>"</span></span></span><span class="support function js firebug"><span>.warn</span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div></pre></code></pre>
+<h3 id="user-content-using-string-safe-api" class="deep-link"><a href="https://www.npmjs.com/package/colors#using-string-safe-api">Using string safe API</a></h3>
+<pre><code class="highlight js"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;colors&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>colors/safe</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;</span></span></div><div class="line"><span class="source js"><span class="comment line double-slash js"><span class="punctuation comment js"><span>//</span></span><span>&nbsp;set&nbsp;single&nbsp;property</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;error&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;colors</span><span class="meta delimiter method period js"><span>.</span></span><span>red</span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>error</span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>this&nbsp;is&nbsp;red</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;</span></span></div><div class="line"><span class="source js"><span class="comment line double-slash js"><span class="punctuation comment js"><span>//</span></span><span>&nbsp;set&nbsp;theme</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source js"><span>colors</span><span class="meta delimiter method period js"><span>.</span></span><span>setTheme</span><span class="meta brace round js"><span>(</span></span><span class="meta brace curly js"><span>{</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;silly</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>rainbow</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;input</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>grey</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;verbose</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>cyan</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;prompt</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>grey</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;info</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>green</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;data</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>grey</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;help</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>cyan</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;warn</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>yellow</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;debug</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>blue</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;error</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>red</span><span class="punctuation string end js"><span>'</span></span></span></span></div><div class="line"><span class="source js"><span class="meta brace curly js"><span>}</span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;</span></span></div><div class="line"><span class="source js"><span class="comment line double-slash js"><span class="punctuation comment js"><span>//</span></span><span>&nbsp;outputs&nbsp;red&nbsp;text</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source js"><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta brace round js"><span>(</span></span><span>colors</span><span class="support function js firebug"><span>.error</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted double js"><span class="punctuation string begin js"><span>"</span></span><span>this&nbsp;is&nbsp;an&nbsp;error</span><span class="punctuation string end js"><span>"</span></span></span><span class="meta brace round js"><span>)</span><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;</span></span></div><div class="line"><span class="source js"><span class="comment line double-slash js"><span class="punctuation comment js"><span>//</span></span><span>&nbsp;outputs&nbsp;yellow&nbsp;text</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source js"><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta brace round js"><span>(</span></span><span>colors</span><span class="support function js firebug"><span>.warn</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted double js"><span class="punctuation string begin js"><span>"</span></span><span>this&nbsp;is&nbsp;a&nbsp;warning</span><span class="punctuation string end js"><span>"</span></span></span><span class="meta brace round js"><span>)</span><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;</span></span></div></pre></code></pre>
+<p>You can also combine them:</p>
+<pre><code class="highlight javascript"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="storage modifier js"><span>var</span></span><span>&nbsp;colors&nbsp;</span><span class="keyword operator js"><span>=</span></span><span>&nbsp;</span><span class="support function js"><span>require</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>colors</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;</span></span></div><div class="line"><span class="source js"><span>colors</span><span class="meta delimiter method period js"><span>.</span></span><span>setTheme</span><span class="meta brace round js"><span>(</span></span><span class="meta brace curly js"><span>{</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;&nbsp;custom</span><span class="keyword operator js"><span>:</span></span><span>&nbsp;</span><span class="meta brace square js"><span>[</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>red</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>underline</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta brace square js"><span>]</span></span></span></div><div class="line"><span class="source js"><span class="meta brace curly js"><span>}</span></span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div><div class="line"><span class="source js"><span>&nbsp;</span></span></div><div class="line"><span class="source js"><span class="entity name type object js firebug"><span>console</span></span><span class="support function js firebug"><span>.log</span></span><span class="meta brace round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation string begin js"><span>'</span></span><span>test</span><span class="punctuation string end js"><span>'</span></span></span><span class="meta delimiter method period js"><span>.</span></span><span>custom</span><span class="meta brace round js"><span>)</span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div></pre></code></pre>
+<p><em>Protip: There is a secret undocumented style in <code>colors</code>. If you find the style you can summon him.</em></p>
+
+  </div>
+
+</div>
+
+<div class="sidebar">
+
+    <div class="autoselect-wrapper npm-install icon-download">
+      <input type="text" value="npm install colors" readonly="">
+    </div>
+
+	<ul class="box">
+
+      <li class="last-publisher">
+        <a href="https://www.npmjs.com/~marak">
+          <img src="./colors_files/7972c616246ab60df7cbc374d4ef9d35" alt="marak">
+          <span>marak</span>
+        </a>
+          published
+          <span data-date="2015-06-17T13:03:00.583Z" data-date-format="relative">4 weeks ago</span>
+      </li>
+
+    <li>
+      <strong>1.1.2</strong>
+      is the latest
+        of 14 releases
+    </li>
+
+      <li>
+        <a href="https://github.com/Marak/colors.js">github.com/Marak/colors.js</a>
+      </li>
+
+
+      <li>
+          <a href="http://opensource.org/licenses/MIT">MIT</a>
+        <span> license</span>
+      </li>
+
+  </ul>
+
+    <h3 title="collaborators">
+        <a href="https://www.npmjs.com/package/colors/access">Collaborators</a>
+    </h3>
+
+    <ul class="humans collaborators">
+        <li>
+          <a href="https://www.npmjs.com/~marak" rel="tipsy" original-title="marak">
+            <img src="./colors_files/7972c616246ab60df7cbc374d4ef9d35" alt="marak">
+          </a>
+        </li>
+
+
+    </ul>
+
+  <h3>Stats</h3>
+  <ul class="box">
+
+      <li>
+        <strong class="pretty-number daily-downloads">234,462</strong>
+        downloads in the last day
+      </li>
+      <li>
+        <strong class="pretty-number weekly-downloads">1,292,667</strong>
+        downloads in the last week
+      </li>
+      <li>
+        <strong class="pretty-number monthly-downloads">5,484,554</strong>
+        downloads in the last month
+      </li>
+
+      <li id="issues" data-ghapi="https://api.github.com/repos/Marak/colors.js">
+        <span class="original" style="display: none;">Have an issue? <a href="https://github.com/Marak/colors.js/issues">17 open issues</a></span>
+          <span class="enhanced" style="">
+            <a href="https://github.com/Marak/colors.js/issues">17 open issues</a> on GitHub
+          </span>
+      </li>
+
+      <li id="pull_requests" style="">
+        <a href="https://github.com/Marak/colors.js/pulls">10 open pull requests</a> on GitHub
+      </li>
+
+  </ul>
+
+  <h3>Keywords</h3>
+  <p class="list-of-links">
+        <a href="https://www.npmjs.com/browse/keyword/colors">colors</a>, 
+        <a href="https://www.npmjs.com/browse/keyword/terminal">terminal</a>, 
+        <a href="https://www.npmjs.com/browse/keyword/ansi">ansi</a>
+  </p>
+
+  <h3>Dependencies </h3>
+  <p class="list-of-links">
+      None
+  </p>
+
+    <h3><a href="https://www.npmjs.com/browse/depended/colors">Dependents</a></h3>
+    <p class="list-of-links dependents">
+
+          <a href="https://www.npmjs.com/package/custom-server-messages">custom-server-messages</a>,
+        
+          <a href="https://www.npmjs.com/package/pancakes-recipe">pancakes-recipe</a>,
+        
+          <a href="https://www.npmjs.com/package/ryfe">ryfe</a>,
+        
+          <a href="https://www.npmjs.com/package/awesome-typescript-loader">awesome-typescript-loader</a>,
+        
+          <a href="https://www.npmjs.com/package/yog-log">yog-log</a>,
+        
+          <a href="https://www.npmjs.com/package/nodame">nodame</a>,
+        
+          <a href="https://www.npmjs.com/package/kisme">kisme</a>,
+        
+          <a href="https://www.npmjs.com/package/trimethyl">trimethyl</a>,
+        
+          <a href="https://www.npmjs.com/package/backbeam-server">backbeam-server</a>,
+        
+          <a href="https://www.npmjs.com/package/attester">attester</a>,
+        
+          <a href="https://www.npmjs.com/package/nokit">nokit</a>,
+        
+          <a href="https://www.npmjs.com/package/aproxy">aproxy</a>,
+        
+          <a href="https://www.npmjs.com/package/generator-yeogurt">generator-yeogurt</a>,
+        
+          <a href="https://www.npmjs.com/package/umhelper.js">umhelper.js</a>,
+        
+          <a href="https://www.npmjs.com/package/grunt-mock2easy">grunt-mock2easy</a>,
+        
+          <a href="https://www.npmjs.com/package/appc-pubsub">appc-pubsub</a>,
+        
+          <a href="https://www.npmjs.com/package/star">star</a>,
+        
+          <a href="https://www.npmjs.com/package/idt">idt</a>,
+        
+          <a href="https://www.npmjs.com/package/ponyshow-cli">ponyshow-cli</a>,
+        
+          <a href="https://www.npmjs.com/package/karma">karma</a>,
+        
+          <a href="https://www.npmjs.com/package/forever">forever</a>,
+        
+          <a href="https://www.npmjs.com/package/cloudron">cloudron</a>,
+        
+          <a href="https://www.npmjs.com/package/testx">testx</a>,
+        
+          <a href="https://www.npmjs.com/package/karma-simple-reporter">karma-simple-reporter</a>,
+        
+          <a href="https://www.npmjs.com/package/mcms-node-core">mcms-node-core</a>,
+        
+          <a href="https://www.npmjs.com/package/grunt-wsmod-packer">grunt-wsmod-packer</a>,
+        
+          <a href="https://www.npmjs.com/package/pm2">pm2</a>,
+        
+          <a href="https://www.npmjs.com/package/monkeymaker-cmdline">monkeymaker-cmdline</a>,
+        
+          <a href="https://www.npmjs.com/package/seed-lang">seed-lang</a>,
+        
+          <a href="https://www.npmjs.com/package/tix-cli">tix-cli</a>,
+        
+          <a href="https://www.npmjs.com/package/ember-index">ember-index</a>,
+        
+          <a href="https://www.npmjs.com/package/rowdy">rowdy</a>,
+        
+          <a href="https://www.npmjs.com/package/yamltoxmljson">yamltoxmljson</a>,
+        
+          <a href="https://www.npmjs.com/package/tsdlocal">tsdlocal</a>,
+        
+          <a href="https://www.npmjs.com/package/rapid-build">rapid-build</a>,
+        
+          <a href="https://www.npmjs.com/package/json-schema-docs-generator">json-schema-docs-generator</a>,
+        
+          <a href="https://www.npmjs.com/package/medici-cli">medici-cli</a>,
+        
+          <a href="https://www.npmjs.com/package/impress">impress</a>,
+        
+          <a href="https://www.npmjs.com/package/appium">appium</a>,
+        
+          <a href="https://www.npmjs.com/package/movienightscraper">movienightscraper</a>,
+        
+          <a href="https://www.npmjs.com/package/pelias-fuzzy-tester">pelias-fuzzy-tester</a>,
+        
+          <a href="https://www.npmjs.com/package/logsene-cli">logsene-cli</a>,
+        
+          <a href="https://www.npmjs.com/package/origami-build-tools">origami-build-tools</a>,
+        
+          <a href="https://www.npmjs.com/package/mobilecaddy">mobilecaddy</a>,
+        
+          <a href="https://www.npmjs.com/package/wyvern">wyvern</a>,
+        
+          <a href="https://www.npmjs.com/package/magic-tasks">magic-tasks</a>,
+        
+          <a href="https://www.npmjs.com/package/kad">kad</a>,
+        
+          <a href="https://www.npmjs.com/package/electron-updater">electron-updater</a>,
+        
+          <a href="https://www.npmjs.com/package/pm25">pm25</a>,
+                  <a href="https://www.npmjs.com/package/json-rest-server">json-rest-server</a>,
+        <a href="https://www.npmjs.com/browse/depended/colors">and 3948 more</a>
+    </p>
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "colors",
+      "description": "get colors in your node.js console",
+      "url": "https://www.npmjs.com/package/colors",
+      "keywords": "colors,terminal,ansi",
+      "applicationCategory": "DeveloperApplication",
+      "offers": {
+         "@type": "Offer",
+         "price": "0.00"
+      }
+    }
+  </script>
+
+  <div class="hiring-container" data-template="sidebar"><div class="ad">
+  <p>
+    <a href="http://jobs.natuelabs.io/jobs/frontend-developer/" title="Natue">Natue</a> is hiring.
+    <a class="quiet" href="https://www.npmjs.com/whoshiring">View more…</a>
+  </p>
+</div></div>
+
+</div>
+
+
+  </div>
+
+  <footer>
+
+    <div class="container">
+
+      <ul class="columnar">
+        <li>
+          <h3>You Need Help</h3>
+          <ul class="links">
+            <li><a href="https://docs.npmjs.com/">Documentation</a></li>
+            <li><a href="https://www.npmjs.com/support">Support / Contact Us</a></li>
+            <li><a href="http://status.npmjs.org/?__hstc=72727564.934cdf4269ff4157a854d184788e7e3a.1432775606818.1436024681182.1437053324604.4&__hssc=72727564.3.1437053324604&__hsfp=1831511499">Registry Status</a></li>
+            <li><a href="https://github.com/npm/newww/issues">Website Issues</a></li>
+            <li><a href="https://github.com/npm/npm/issues">CLI Issues</a></li>
+            <li><a href="https://www.npmjs.com/security">Security</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <h3>About npm</h3>
+          <ul class="links">
+            <li><a href="https://www.npmjs.com/about">About npm, Inc</a></li>
+            <li><a href="https://www.npmjs.com/jobs">Jobs</a></li>
+            <li><a href="https://www.npmjs.com/private-modules">npm private modules</a></li>
+            <li><a href="http://blog.npmjs.org/?__hstc=72727564.934cdf4269ff4157a854d184788e7e3a.1432775606818.1436024681182.1437053324604.4&__hssc=72727564.3.1437053324604&__hsfp=1831511499">Blog</a></li>
+            <li><a href="https://twitter.com/npmjs">Twitter</a></li>
+            <li><a href="https://github.com/npm">GitHub</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <h3>Legal Stuff</h3>
+          <ul class="links">
+            <li><a href="https://www.npmjs.com/policies/conduct">Code of Conduct</a></li>
+            <li><a href="https://www.npmjs.com/policies/disputes">Package Name Disputes</a></li>
+            <li><a href="https://www.npmjs.com/policies/npm-license">npm License</a></li>
+            <li><a href="https://www.npmjs.com/policies/privacy">Privacy Policy</a></li>
+            <li><a href="https://www.npmjs.com/policies/receiving-reports">Reporting Abuse</a></li>
+            <li><a href="https://www.npmjs.com/policies/trademark">Trademark Policy</a></li>
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+
+    <div class="container centered">
+      <a href="https://www.npmjs.com/" id="npm-loves-you">
+        npm loves you
+      </a>
+    </div>
+
+  </footer>
+  
+
+
+
+<!-- pid=22039 6537654942f9443c635c3fec1a18e4fb9ea362b1 https://www.npmjs.com www-9-west.internal.npmjs.com  -->
+<div class="autocomplete-suggestions" style="position: absolute; display: none; width: 533px; max-height: 400px; z-index: 9999;"></div><script id="hiddenlpsubmitdiv" style="display: none;"></script><script>try{for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){ var lastpass_f = document.forms[lastpass_iter]; if(typeof(lastpass_f.lpsubmitorig2)=="undefined"){ lastpass_f.lpsubmitorig2 = lastpass_f.submit; if (typeof(lastpass_f.lpsubmitorig2)=='object'){ continue;}lastpass_f.submit = function(){ var form=this; var customEvent = document.createEvent("Event"); customEvent.initEvent("lpCustomEvent", true, true); var d = document.getElementById("hiddenlpsubmitdiv"); if (d) {for(var i = 0; i < document.forms.length; i++){ if(document.forms[i]==form){ if (typeof(d.innerText) != 'undefined') { d.innerText=i.toString(); } else { d.textContent=i.toString(); } } } d.dispatchEvent(customEvent); }form.lpsubmitorig2(); } } }}catch(e){}</script></body></html>
