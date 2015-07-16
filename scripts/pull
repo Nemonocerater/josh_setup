@@ -13,16 +13,27 @@ if [ "$arg" = "-h" ] || [ "$arg" = "--help" ]; then
 	exit 0;
 fi
 
-echo "You can use \`push -h\` or \`push --help\` for more information.";
+echo "You can use \`pull -h\` or \`pull --help\` for more information.";
 
 if [ $branchName = "master" ]; then
 	echo "You are on master. Please make a new branch with 'git checkout -b <branchName>'";
 	exit 0;
 fi
 
-git stash;
+
+[[ -z "`git status -s`" ]] && hasChanges=false || hasChanges=true
+
+if $hasChanges ; then
+	git stash;
+else
+	echo "No changes, pulling master and merging it in";
+fi
+
 git checkout master;
 git pull origin master;
 git checkout $branchName;
 git merge master;
-git stash apply;
+
+if $hasChanges ; then
+	git stash apply;
+fi

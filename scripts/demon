@@ -4,5 +4,5 @@ array=(`cat /usr/share/dict/words | rev | gshuf`);
 
 for i in "${array[@]}"; do
 	printf "`style --random $i` ";
-	say $i;
+	say -r 0.25 -v Whisper $i;
 done
