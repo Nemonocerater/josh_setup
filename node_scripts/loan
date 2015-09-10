@@ -16,10 +16,14 @@ var amountPaid = 0;
 var numMonths = 0;
 
 while (currentLoan > 0) {
-	currentLoan -= monthlyPayment;
+	var paymentAmount = monthlyPayment;
+	if (currentLoan < monthlyPayment) {
+		paymentAmount = currentLoan;
+	}
+	currentLoan -= paymentAmount;
 	currentLoan = monthlyIncrease * currentLoan;
 
-	amountPaid += monthlyPayment;
+	amountPaid += paymentAmount;
 	numMonths++;
 }
 
