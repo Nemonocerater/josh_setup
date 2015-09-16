@@ -65,16 +65,6 @@ source $(brew --prefix nvm)/nvm.sh
 # vagrant stuffs
 local VAGRANT_DEV_DIR=~/Code/vagrant-dev
 alias vagrant_xdebug="vagrant ssh -- -N -R 9000:localhost:9000 &"
-if [ -d "$VAGRANT_DEV_DIR" ]; then
-	local VAGRANT_XDEBUG_RUNNING="`ps -ax | grep "\d*:\d*\.\d* bash /usr/bin/vagrant ssh -- -N -R 9000:localhost:9000"`"
-	if [ -z "$VAGRANT_XDEBUG_RUNNING" ]; then
-		local PREVIOUS_DIR=`pwd`
-		cd $VAGRANT_DEV_DIR
-		printf "forwarding vagrant debug port (process id): "
-		vagrant_xdebug
-		cd $PREVIOUS_DIR
-	fi
-fi
 
 
 ### Google Cloud
