@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cat /usr/share/dict/words > ~/aaa &
+
+tail -f ~/aaa | say
