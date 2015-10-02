@@ -15,5 +15,8 @@ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ## Install tmux
 brew install tmux
 
+## Install hub
+brew install hub
+
 ## Install Oh-my-zsh
 curl -L http://install.ohmyz.sh | sh
