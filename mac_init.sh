@@ -23,3 +23,8 @@ curl -L http://install.ohmyz.sh | sh
 
 ## Install irc client (irssi)
 brew install irssi
+
+## Install Markdown and Browser
+brew install markdown
+brew install lynx
+

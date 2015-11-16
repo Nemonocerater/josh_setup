@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# http://stackoverflow.com/questions/7599447/less-style-markdown-viewer-for-unix-systems
+markdown $1 | lynx -stdin
