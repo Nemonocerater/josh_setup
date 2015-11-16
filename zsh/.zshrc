@@ -13,18 +13,10 @@ ZSH_THEME="simple"
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+HIST_STAMPS="yyyy-mm-dd"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -41,21 +33,9 @@ if [ -f ~/.bashrc ]; then
 	source ~/.bashrc
 fi
 
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:~/bin ~/Library/Python/2.7/bin:/opt/X11/bin:/usr/local/git/bin"
-export PATH="$HOME/.rbenv/bin:$PATH"
-
-
-if [ "$(which rbenv)" != "rbenv not found" ]; then
-	eval "$(rbenv init -)"
-fi
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
+# rbenv stuffs
+eval "$(rbenv init -)"
+RBENV_VERSION="2.2.2"
 
 # nvm stuffs
 export NVM_DIR=~/.nvm
@@ -64,7 +44,10 @@ source $(brew --prefix nvm)/nvm.sh
 
 # vagrant stuffs
 local VAGRANT_DEV_DIR=~/Code/vagrant-dev
-alias vagrant_xdebug="vagrant ssh -- -N -R 9000:localhost:9000 &"
+
+alias 'vagrant_xdebug'='vagrant ssh -- -N -R 9000:localhost:9000 &'
+alias 'rmux'='vagrant ssh -- sudo start rmux'
+alias 'vrestart'='vagrant halt && vagrant up && rmux'
 
 
 ### Google Cloud
@@ -78,7 +61,7 @@ fi
 
 
 ### Aliases
-alias 'git-log'='git log --decorate'
+alias 'git-log'='git log --decorate --pretty=oneline'
 
 
 ### Mac OS X Improvements
