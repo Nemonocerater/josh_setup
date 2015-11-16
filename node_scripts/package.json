@@ -1,7 +1,7 @@
 {
   "name": "node_scripts",
-  "version": "0.0.0",
-  "description": "",
+  "version": "1.0.0",
+  "description": "just miscellaneous scripts written with node.  this is just to control dependencies.",
   "main": "index.js",
   "dependencies": {
     "bencode": "^0.7.0",
