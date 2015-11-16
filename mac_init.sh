@@ -20,3 +20,6 @@ brew install hub
 
 ## Install Oh-my-zsh
 curl -L http://install.ohmyz.sh | sh
+
+## Install irc client (irssi)
+brew install irssi
