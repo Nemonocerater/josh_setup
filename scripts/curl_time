@@ -2,7 +2,7 @@
 
 echo "This probably only works in CentOS\n\n";
 
-REALTIME=$({ time -p curl infinitycon.net >/dev/null; } |& grep real);
-TIME=$(echo $REALTIME | grep -oP "[0-9]\.[0-9]*")
-
-echo $TIME
+#REALTIME=$({ time -p curl infinitycon.net >/dev/null; } |& grep real);
+#TIME=$(echo $REALTIME | grep -oP "[0-9]\.[0-9]*")
+#
+#echo $TIME
