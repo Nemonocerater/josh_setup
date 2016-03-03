@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+
+var bencode = require('bencode');
+var encoding = 'utf-8';
+var data = "";
+
+process.stdin.resume();
+process.stdin.setEncoding('ascii');
+
+process.stdin.on('data', function(chunk) {
+	data += chunk;
+});
+
+process.stdin.on('end', function() {
+	var object = bencode.decode(data);
+	removeBuffers(object);
+	var output = JSON.stringify(object, null, 2);
+	console.log (output);
+});
+
+function removeBuffers(obj)
+{
+    for (var k in obj)
+    {
+    	var child = obj[k];
+    	if (Buffer.isBuffer(child)) {
+    		obj[k] = child.toString(encoding);
+        } else if (typeof child == "object") {
+			removeBuffers(child);
+        }
+    }
+}
