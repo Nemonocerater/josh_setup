@@ -61,7 +61,9 @@ fi
 
 
 ### Aliases
-alias 'git-log'='git log --decorate --pretty=oneline'
+alias 'c'='clear'
+alias 'glog'='git log --pretty="%C(yellow bold)%h%Creset %C(magenta dim)(%ae) %Creset%s"'
+alias 'pgrep'='ps aux | grep'
 
 
 ### Mac OS X Improvements
@@ -73,3 +75,6 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 export PATH=~/code/josh_setup/scripts:$PATH
 export PATH=~/code/josh_setup/node_scripts:$PATH
 export PATH=~/android-sdk-macosx/platform-tools:$PATH
+
+# Set to Vim mode
+set -o vi

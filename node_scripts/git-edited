@@ -1,0 +1,117 @@
+#!/usr/bin/env node
+
+const exec = require('child_process').exec;
+const spawn = require('child_process').spawn;
+
+var file_map = {};
+var print = false;
+var diff_process_count = 0;
+
+exec (
+	"git log --pretty=oneline | awk '{print $1;}'",
+	{
+		maxBuffer: 1024 * 10000
+	},
+	function exec_git_commits(e, out, err) {
+		if (e) {
+			console.log ("Error: " + e);
+			return;
+		}
+
+		var commits = out.split('\n');
+		processAllCommits (commits);
+	});
+
+function processAllCommits(commits) {
+	var howManyCommits = commits.length - 1;
+	var i = 1;
+	var startTime = Date.now();
+
+	process.nextTick (commit_tick);
+
+	function commit_tick () {
+		var duration = Date.now() - startTime;
+		process.stdout.write (i + "/" + howManyCommits + " " + duration + "ms\r");
+		git_diff(commits[i], commits[i - 1]);
+		i++;
+		
+		if (i <= howManyCommits) {
+			if (i % 500 === 0) {
+				setTimeout (commit_tick, 200);
+			} else {
+				process.nextTick (commit_tick);
+			}
+		} else {
+			print = true;
+		}
+	}
+}
+
+function git_diff(start_commit, end_commit) {
+	exec (
+		"nice -n -5 git diff-tree --no-commit-id --name-only -r " + start_commit + ".." + end_commit,
+		{
+			maxBuffer: 5000 * 1024
+		},
+		function (e, out, err) {
+			if (e) {
+				console.log ("Error: " + e);
+				return;
+			}
+
+			var files = out.split('\n');
+			files = files.slice(0, files.length - 1);
+			process_changed_files (files);
+			diff_process_count--;
+		});
+	diff_process_count++;
+}
+
+function process_changed_files(files) {
+	files.forEach (function foreach_file(file) {
+		var previous_value = file_map[file] ? file_map[file] : 0;
+		file_map[file] = previous_value + 1;
+	});
+
+	if (print && diff_process_count <= 1) {
+		display_changed_files();
+	}
+}
+
+function display_changed_files () {
+	var sorted_file_map = [];
+	var keys = Object.keys(file_map);
+
+	for (var i = keys.length; i > 0; i--) {
+		var best_file;
+		var best_count = 0;
+
+		keys.forEach (function find_most_used_file (file) {
+			var count = file_map[file];
+
+			if (count > best_count) {
+				best_file = file;
+				best_count = count;
+			}
+		});
+
+		sorted_file_map.push(best_file + " : " + best_count);
+
+		delete file_map[best_file];
+	}
+	
+	//console.log (sorted_file_map);
+
+
+	var fs = require('fs');
+	fs.writeFile("commit_list.json", sorted_file_map.join('\n'), function(err) {
+		if(err) {
+			return console.log(err);
+		}
+
+		process.stdout.write ('\n'); // hopefully stops from deleting the count and time
+		console.log("The file was saved: commit_list.json");
+	}); 
+}
+
+
