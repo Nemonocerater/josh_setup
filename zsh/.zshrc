@@ -78,3 +78,6 @@ export PATH=~/android-sdk-macosx/platform-tools:$PATH
 
 # Set to Vim mode
 set -o vi
+
+# Added by GraphLab Create Launcher v3.0.0
+export PATH="/Users/joshua.harris/anaconda/bin:$PATH"
