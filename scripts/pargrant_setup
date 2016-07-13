@@ -1,0 +1,6 @@
+#!/bin/sh
+
+vagrant ssh -- "sh -c \"$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)\""
+vagrant ssh -- "git clone http://github.com/Nemonocerater/josh_setup.git"
+vagrant ssh -- "~/josh_setup/setup_mac_config.sh"
+vagrant ssh -- "echo \"cd /var/www/pi\" >> ~/.zshrc"

@@ -1,0 +1,16 @@
+#!/bin/sh
+
+echo "$(git branch)"
+echo $GITBRANCH
+
+IFS="\n"
+read -a BRANCHES <<< "$BRANCHES_TEXT"
+
+echo "...";
+echo $BRANCHES
+
+for i in ${BRANCHES[@]}
+do
+	echo "bob"
+	#echo ">>>> $i"
+done
