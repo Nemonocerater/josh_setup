@@ -1,19 +1,13 @@
 #!/bin/sh
 
-FILENAME=~/.demon
+#array=(`cat /usr/share/dict/words | rev | gshuf`);
+#for i in "${array[@]}"; do
+#	say -r 0.25 -v Whisper $i;
+#done
 
-if [ -z $1 ]; then
-	VOICE=Whisper
-else
-	VOICE=$1
-fi
+VOICE="Whisper"
 
+SUGGESTED_VOICE="$1"
+if [ -z ${SUGGESTED_VOICE+x} ]; then VOICE="$1"; fi;
 
-touch $FILENAME
-
-cat /usr/share/dict/words | rev | gshuf > $FILENAME
-
-cat $FILENAME | say -v $VOICE &
-
-#cat $FILENAME | style --random | xargs printf
-#rm $FILENAME
+cat /usr/share/dict/words | rev | gshuf | say -r 0.25 -v $VOICE

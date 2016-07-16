@@ -1,0 +1,40 @@
+#!/bin/sh
+
+STAT=stats.gauges.sfdc.changeLog.total.shard
+MODE=0
+SHARD="*"
+FROM=""
+TO=""
+
+if [[ "$1" == -* ]]; then
+	if [ "$1" -eq "-h" ]; then
+		echo "changeLog [-h/-s/-i/-si] shardIdRegex [from] [to]
+		exit(0);
+	fi
+
+	if [ "$1" -eq "-s" ]; then
+		MODE=1
+	fi
+
+	if [ "$1" -eq "-i" ]; then
+		MODE=2
+	fi
+
+	if [ "$1" -eq "-si" ]; then
+		MODE=3
+	fi
+
+	SHARD="$2"
+	FROM="$3"
+	TO="$4"
+else
+	SHARD="$1"
+	FROM="$2"
+	TO="$3"
+fi
+
+
+echo @MODE
+echo @SHARD
+echo @FROM
+echo @TO
