@@ -1,0 +1,7 @@
+#!/bin/sh
+
+PRODUCT_NAME="`sw_vers -productName`"
+
+if [ "$PRODUCT_NAME" = "Mac OS X" ]; then
+	echo "true"
+fi
