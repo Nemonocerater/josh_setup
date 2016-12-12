@@ -1,0 +1,16 @@
+
+# Load Bash on Mac... not sure why I'm doing it though...
+if [ -f ~/.bash_profile ]; then
+	source ~/.bash_profile
+fi
+if [ -f ~/.bashrc ]; then
+	source ~/.bashrc
+fi
+
+# Mac OS X Improvements
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
+# NVM
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
