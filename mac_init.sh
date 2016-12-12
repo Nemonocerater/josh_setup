@@ -28,3 +28,4 @@ brew install irssi
 brew install markdown
 brew install lynx
 
+./mac_config.sh

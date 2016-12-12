@@ -1,0 +1,6 @@
+
+source-file "~/code/josh_setup/tmux/.tmux.conf"
+
+# Fix copypasta in mac
+set-option -g default-command "reattach-to-user-namespace -l zsh"
+
