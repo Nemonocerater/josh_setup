@@ -45,7 +45,10 @@ source $(brew --prefix nvm)/nvm.sh
 # vagrant stuffs
 local VAGRANT_DEV_DIR=~/Code/vagrant-dev
 
-alias 'vagrant_xdebug'='vagrant ssh -- -N -R 9000:localhost:9000 &'
+alias 'vagrant_logs'='vagrant ssh -c "sudo tail -n0 -f /var/log/messages"'
+alias 'vagrant_errors'='vagrant ssh -c "sudo tail -n0 -f /var/log/messages | grep --color=auto \"CRITICAL\|ALERT\|ERROR\|Fatal\|EMERGENCY\""'
+alias 'vagrant_xdebug'='vagrant ssh -- -N -R 9000:localhost:9000'
+alias 'vagrant_test'='vagrant ssh -c "./phpunit $1"'
 alias 'rmux'='vagrant ssh -- sudo start rmux'
 alias 'vrestart'='vagrant halt && vagrant up && rmux'
 
@@ -64,6 +67,7 @@ fi
 alias 'c'='clear'
 alias 'glog'='git log --pretty="%C(yellow bold)%h%Creset %C(magenta dim)(%ae) %Creset%s"'
 alias 'pgrep'='ps aux | grep'
+alias 'clear-local-branches'='git branch | grep -v "master|aaa" | xargs git branch -D'
 
 
 ### Mac OS X Improvements
@@ -81,3 +85,5 @@ set -o vi
 
 # Added by GraphLab Create Launcher v3.0.0
 export PATH="/Users/joshua.harris/anaconda/bin:$PATH"
+
+export DESKTOP='10.71.20.62'
