@@ -26,26 +26,31 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+# Set to Vim mode
+set -o vi
+
 # vagrant stuffs
 local VAGRANT_DEV_DIR=~/Code/vagrant-dev
 
-alias 'vagrant_xdebug'='vagrant ssh -- -N -R 9000:localhost:9000 &'
+alias 'vagrant_logs'='vagrant ssh -c "sudo tail -n0 -f /var/log/messages"'
+alias 'vagrant_errors'='vagrant ssh -c "sudo tail -n0 -f /var/log/messages | grep --color=auto \"CRITICAL\|ALERT\|ERROR\|Fatal\|EMERGENCY\""'
+alias 'vagrant_xdebug'='vagrant ssh -- -N -R 9000:localhost:9000'
+alias 'vagrant_test'='vagrant ssh -c "./phpunit $1"'
 alias 'rmux'='vagrant ssh -- sudo start rmux'
 alias 'vrestart'='vagrant halt && vagrant up && rmux'
+export DESKTOP='10.71.20.62'
 
 
 ### Aliases
 alias 'c'='clear'
 alias 'glog'='git log --pretty="%C(yellow bold)%h%Creset %C(magenta dim)(%ae) %Creset%s"'
 alias 'pgrep'='ps aux | grep'
+alias 'clear-local-branches'='git branch | grep -v "master|aaa" | xargs git branch -D'
 
 
 # Add my custom scripts to the path
 export PATH=~/code/josh_setup/scripts:$PATH
 export PATH=~/code/josh_setup/node_scripts:$PATH
-
-# Set to Vim mode
-set -o vi
 
 # Pull in services
 source ~/code/josh_setup/zsh/.zshrc.services
