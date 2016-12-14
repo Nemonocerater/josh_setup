@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if type "sw_vers" &> /dev/null; then
+	PRODUCT_NAME="`sw_vers -productName`"
+fi
+
+if [ "$PRODUCT_NAME" = "Mac OS X" ]; then
+	echo "true"
+fi

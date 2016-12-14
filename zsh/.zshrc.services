@@ -1,0 +1,25 @@
+
+# Rbenv
+if [ -d "/Users/joshua/.rbenv" ]; then
+	eval "$(rbenv init -)"
+	RBENV_VERSION="2.2.2"
+fi
+
+### Google Cloud
+if [ -d "/Users/joshua/google-cloud-sdk" ]; then
+	# The next line updates PATH for the Google Cloud SDK.
+	source '/Users/joshua/google-cloud-sdk/path.zsh.inc'
+
+	# The next line enables bash completion for gcloud.
+	source '/Users/joshua/google-cloud-sdk/completion.zsh.inc'
+fi
+
+# Added by GraphLab Create Launcher v3.0.0
+if [ -d "~/anaconda" ]; then
+	export PATH="/Users/joshua.harris/anaconda/bin:$PATH"
+fi
+
+# Android SDK
+if [ -d "~/android-sdk-macosk" ]; then
+	export PATH=~/android-sdk-macosx/platform-tools:$PATH
+fi

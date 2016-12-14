@@ -80,13 +80,19 @@ map <F3> :set paste<CR> :r !pbpaste<CR> :set nopaste<CR>
 " Setup templates for certain filetypes
 :autocmd BufNewFile *.c 0r ~/.vimtemplates/skeleton.c
 :autocmd BufNewFile *.html 0r ~/.vimtemplates/skeleton.html
+:autocmd BufNewFile *.php 0r ~/.vimtemplates/skeleton.html
 
 " Default syntax highlighting
 "filetype on				" Allows vim to detect filetyps for syntax highlighting
+:autocmd BufRead,BufNewFile *.css setlocal syntax=css
+:autocmd BufRead,BufNewFile *.js setlocal syntax=js
+
+" General Web Tool highlighting
+:autocmd BufRead,BufNewFile *.coffee setlocal syntax=python
+:autocmd BufRead,BufNewFile *.less setlocal syntax=css
+
+" APEX Development highlighting
 :autocmd BufRead,BufNewFile *_css.resource setlocal syntax=css
 :autocmd BufRead,BufNewFile *_js.resource setlocal syntax=js
 :autocmd BufRead,BufNewFile *.cls setlocal syntax=cs
 :autocmd BufRead,BufNewFile *.page setlocal syntax=html
-
-:autocmd BufRead,BufNewFile *.coffee setlocal syntax=python
-:autocmd BufRead,BufNewFile *.less setlocal syntax=css

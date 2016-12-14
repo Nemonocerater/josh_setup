@@ -1,0 +1,12 @@
+
+# My Salesforce CLI Functions
+source ~/code/josh_setup/.sfdc-functions
+
+# Aliases
+alias vup="amixer -D pulse sset Master 5%+"
+alias vdown="amixer -D pulse sset Master 5%-"
+alias vset="amixer -D pulse sset Master $1"
+
+# NVM
+export NVM_DIR="/home/joshua.harris/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

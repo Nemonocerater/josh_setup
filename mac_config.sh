@@ -13,7 +13,7 @@ ln -s $HOME/code/josh_setup/vim/.vimtemplates ~/.vimtemplates
 
 ## Update the tmux files
 rm ~/.tmux.conf
-ln -s $HOME/code/josh_setup/tmux/.tmux.conf ~/.tmux.conf
+ln -s $HOME/code/josh_setup/tmux/.tmux.conf.mac ~/.tmux.conf
 
 function brewInstall() {
 	if [ -z "`brew ls --versions $1`" ]; then
