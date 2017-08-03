@@ -8,5 +8,6 @@ function app-up() {
 		do echo -n .
 		sleep 5s
 	done
-	google-chrome $url
+	#google-chrome $url
+	echo "Site is up at: $url"
 }
