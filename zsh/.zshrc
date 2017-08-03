@@ -46,7 +46,9 @@ alias 'c'='clear'
 alias 'glog'='git log --pretty="%C(yellow bold)%h%Creset %C(magenta dim)(%ae) %Creset%s"'
 alias 'pgrep'='ps aux | grep'
 alias 'clear-local-branches'='git branch | grep -v "master|aaa" | xargs git branch -D'
+alias 'open-desktop'='sudo ufw allow proto tcp from any to any port 6109'
 
+export P4PORT="ssl:p4proxy.atlanta.soma.salesforce.com:1999"
 
 # Add my custom scripts to the path
 export PATH=~/code/josh_setup/scripts:$PATH
