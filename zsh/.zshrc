@@ -76,6 +76,8 @@ export PATH=~/code/josh_setup/scripts:$PATH
 export PATH=~/code/josh_setup/node_scripts:$PATH
 export PATH=~/android-sdk-macosx/platform-tools:$PATH
 
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+
 # Set to Vim mode
 set -o vi
 

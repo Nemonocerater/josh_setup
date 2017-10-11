@@ -81,7 +81,7 @@ map <F3> :set paste<CR> :r !pbpaste<CR> :set nopaste<CR>
 " Default syntax highlighting
 "filetype on				" Allows vim to detect filetyps for syntax highlighting
 :autocmd BufRead,BufNewFile *.css setlocal syntax=css
-:autocmd BufRead,BufNewFile *.js setlocal syntax=js
+:autocmd BufRead,BufNewFile *.js setlocal syntax=javascript
 
 " General Web Tool highlighting
 :autocmd BufRead,BufNewFile *.coffee setlocal syntax=python
@@ -89,6 +89,8 @@ map <F3> :set paste<CR> :r !pbpaste<CR> :set nopaste<CR>
 
 " APEX Development highlighting
 :autocmd BufRead,BufNewFile *_css.resource setlocal syntax=css
-:autocmd BufRead,BufNewFile *_js.resource setlocal syntax=js
+:autocmd BufRead,BufNewFile *_js.resource setlocal syntax=javascript
 :autocmd BufRead,BufNewFile *.cls setlocal syntax=cs
 :autocmd BufRead,BufNewFile *.page setlocal syntax=html
+
+colorscheme zellner

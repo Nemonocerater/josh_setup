@@ -29,3 +29,4 @@ console.log ("You are investing " + monthlyAmount + " dollars for " + numMonths 
 console.log ("You started with: " + initialCapital);
 console.log ("You put in: " + amountPaid);
 console.log ("Your investment is worth: $" + investment.toFixed(2));
+console.log ("Your gains: $" + (investment.toFixed(2) - amountPaid - initialCapital));

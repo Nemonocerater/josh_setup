@@ -8,6 +8,9 @@
 VOICE="Whisper"
 
 SUGGESTED_VOICE="$1"
-if [ -z ${SUGGESTED_VOICE+x} ]; then VOICE="$1"; fi;
+if [ -z ${SUGGESTED_VOICE+x} ]; then
+	VOICE="$1";
+fi;
+echo $VOICE
 
 cat /usr/share/dict/words | rev | gshuf | say -r 0.25 -v $VOICE
