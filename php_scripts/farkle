@@ -1,0 +1,359 @@
+#!/usr/bin/env php
+<?php
+
+/*
+ * Need to change the roll calculator to split up all of the dice into the
+ * appropriate groups that are scorable and the farkle dice.
+ *
+ * Then have another function that determines how to pick which dice to
+ * keep from the scorable dice if any.
+ */
+
+$sixOfAKind = [4,4,4,4,4,4];
+$triplets = [2,2,2,6,6,6];
+$fiveOfAKind = [1,3,3,3,3,3];
+$fullHouse = [2,2,4,4,4,4];
+$pairs = [1,1,3,3,6,6];
+$straight = [1,2,3,4,5,6];
+$fourOfAKind = [2,4,6,6,6,6];
+$threeSix = [2,2,4,6,6,6];
+$threeFive = [1,2,3,5,5,5];
+$threeTwo = [1,2,2,2,4,5];
+$hasOne = [1,2,2,4,3,6];
+$hasFive = [5,2,2,4,3,6];
+
+//$a = $hasFive;
+//var_dump($a);
+//$score = getBestScore($a);
+//echo "$score\n";
+//var_dump($a);
+
+//a($sixOfAKind);
+//a($triplets);
+//a($fiveOfAKind);
+//a($fullHouse);
+//a($pairs);
+//a($straight);
+//a($fourOfAKind);
+//a($threeSix);
+//a($threeFive);
+//a($threeTwo);
+//a($hasOne);
+//a($hasFive);
+//
+//function a($v) {
+//	$counts = array_count_values($v);
+//	$val = isThreePair($counts);
+//	if ($val === false) $val = "false";
+//	echo "$val\n";
+//}
+
+//calc_avgFirstRoll();
+calc_stats();
+
+function calc_avgFirstRoll() {
+	$num = 100000;
+	echo "Average First Roll (Sample Size: $num):\n";
+	$scores = [];
+	for ($i = 0; $i < $num; $i++) {
+		$rolls = rollDice();
+		$scores []= getBestScore($rolls);
+	}
+	sort($scores);
+	$avg = array_sum($scores) / $num;
+	$median = $scores[((int)$num/2)];
+	echo "Average: $avg\n";
+	echo "Median: $median\n";
+	echo "\n";
+}
+
+function calc_stats() {
+	$numRounds = 100000;
+	$scores = [];
+	$farkleRolls = [];
+	$sixDieRolls = [];
+
+	for ($i = 0; $i < $numRounds; $i++) {
+		$result = playRoundOfFarkle();
+		$scores []= $result['score'];
+		$farkleRolls []= $result['farkleDice'];
+		$sixDieRolls []= $result['sixDiceRolls'];
+	}
+
+	rsort($scores);
+	$avg = array_sum($scores) / $numRounds;
+	$median = $scores[(int)($numRounds / 2)];
+
+	$farkleCounts = array_count_values($farkleRolls);
+	$sixDieCounts = array_count_values($sixDieRolls);
+	ksort($farkleCounts);
+	ksort($sixDieCounts);
+
+	echo "Rounds Played: $numRounds\n";
+	echo "Average Score: $avg\n";
+	echo "Median Score: $median\n";
+	echo "Top Scores:\n";
+	for ($i = 1; $i <= 10; $i++) {
+		echo "  $i: " . $scores[$i -1] . "\n";
+	}
+	echo "Farkles: \n";
+	foreach ($farkleCounts as $dice => $farkles) {
+		$percent = $farkles / $numRounds * 100;
+		echo "  $dice dice: $percent%\n";
+	}
+	echo "Six die rolls: \n";
+	foreach ($sixDieCounts as $counts => $amount) {
+		$percent = $amount / $numRounds * 100;
+		echo "  $counts - $percent%\n";
+	}
+}
+
+function printDice($dice, $score = "", $farkle = false) {
+	sort($dice);
+	$str = "Dice: ";
+	foreach ($dice as $die) {
+		$str .= "[$die]";
+	}
+	$str .= " : $score";
+	if ($farkle) {
+		$str .= " : farkle";
+	}
+	echo "$str\n";
+}
+
+function rollDice($count = 6) {
+	$rolls = [];
+	for ($i = 0; $i < $count; $i++) {
+		$rolls []= rand(1, 6);
+	}
+	return $rolls;
+}
+
+function playRoundOfFarkle($p = false) {
+	$numSixDieRolls = 1;
+
+	$rolls = rollDice();
+	$pRolls = $rolls;
+	$score = getBestScore($rolls);
+	$totalScore = $score;
+	if ($p) printDice($pRolls, $totalScore);
+
+	$diceToRoll = howManyDiceToRoll($rolls);
+
+	while ($score !== 'farkle') {
+		$rolls = rollDice($diceToRoll);
+		$pRolls = $rolls;
+		$score = getBestScore($rolls);
+		$totalScore += $score;
+		$diceToRoll = howManyDiceToRoll($rolls);
+
+		if ($diceToRoll === 6) {
+			$numSixDieRolls++;
+		}
+
+		if ($p) {
+			if ($score === 'farkle') {
+				printDice($pRolls, $totalScore, true);
+			} else {
+				printDice($pRolls, $totalScore);
+			}
+		}
+	}
+
+	if ($p) {
+		echo "Score: $totalScore\n";
+		echo "Dice rolled when farkle: $diceToRoll\n";
+		echo "Number of times with 6 dice rolls: $numSixDieRolls\n";
+	}
+
+	return [
+		"score" => $totalScore,
+		"farkleDice" => $diceToRoll,
+		"sixDiceRolls" => $numSixDieRolls
+	];
+}
+
+function howManyDiceToRoll($dice) {
+	return count($dice) ? count($dice) : 6;
+}
+
+function getBestScore(&$rolls) {
+	return getGreedyScore($rolls);
+}
+
+function getGreedyScore(&$rolls) {
+	$numRolls = count($rolls);
+	if ($numRolls > 6 || $numRolls < 1) {
+		throw new Exception("Invalid number of rolls: $numRolls");
+	}
+
+	$counts = array_count_values($rolls);
+	
+	if (isXOfAKind($counts, 6)) { // 6 of a kind
+		$rolls = [];
+		return 3000;
+	} elseif (isTwoTriplets($counts)) { // two triplets
+		$rolls = [];
+		return 2500;
+	} elseif (($val = isXOfAKind($counts, 5))) { // 5 of a kind
+		$rolls = array_diff($rolls, [$val]);
+		return 2000;
+	} elseif (isFullHouse($counts)) { // full house
+		$rolls = [];
+		return 1500;
+	} elseif (isThreePair($counts)) { // three pair
+		$rolls = [];
+		return 1500;
+	} elseif (isStraight($counts)) { // 1-6 straight
+		$rolls = [];
+		return 1500;
+	} elseif (($val = isXOfAKind($counts, 4))) { // 4 of a kind
+		$rolls = array_diff($rolls, [$val]);
+		return 1000;
+	} elseif (($val = isXOfAKind($counts, 3))) { // 3 of a kind
+		if ($val === 1) {
+			$rolls = array_diff($rolls, [$val]);
+			return 300;
+		} elseif ($val > 2) {
+			$rolls = array_diff($rolls, [$val]);
+			return $val * 100;
+		} else { // handle 3 twos (it sucks, but sometimes you have to take it)
+			if (in_array(1, $rolls)) { // ones
+				removeValueFromArray($rolls, 1);
+				return 100;
+			} elseif (in_array(5, $rolls)) { // fives
+				removeValueFromArray($rolls, 5);
+				return 50;
+			} else { // take the stinkin' twos
+				$rolls = array_diff($rolls, [$val]);
+				return 200;
+			}
+		}
+	} elseif (in_array(1, $rolls)) { // ones
+		removeValueFromArray($rolls, 1);
+		return 100;
+	} elseif (in_array(5, $rolls)) { // fives
+		removeValueFromArray($rolls, 5);
+		return 50;
+	}
+
+	return "farkle";
+}
+
+function getScardyScore(&$rolls) {
+	$numRolls = count($rolls);
+	if ($numRolls > 6 || $numRolls < 1) {
+		throw new Exception("Invalid number of rolls: $numRolls");
+	}
+
+	$counts = array_count_values($rolls);
+	
+	if (isXOfAKind($counts, 6)) { // 6 of a kind
+		$rolls = [];
+		return 3000;
+	} elseif (isTwoTriplets($counts)) { // two triplets
+		$rolls = [];
+		return 2500;
+	} elseif (($val = isXOfAKind($counts, 5))) { // 5 of a kind
+		$rolls = array_diff($rolls, [$val]);
+		return 2000;
+	} elseif (isFullHouse($counts)) { // full house
+		$rolls = [];
+		return 1500;
+	} elseif (isThreePair($counts)) { // three pair
+		$rolls = [];
+		return 1500;
+	} elseif (isStraight($counts)) { // 1-6 straight
+		$rolls = [];
+		return 1500;
+	} elseif (($val = isXOfAKind($counts, 4))) { // 4 of a kind
+		$rolls = array_diff($rolls, [$val]);
+		return 1000;
+	} elseif (($val = isXOfAKind($counts, 3))) { // 3 of a kind
+		if ($val === 1) {
+			$rolls = array_diff($rolls, [$val]);
+			return 300;
+		} elseif ($val > 2) {
+			$rolls = array_diff($rolls, [$val]);
+			return $val * 100;
+		} else { // handle 3 twos (it sucks, but sometimes you have to take it)
+			if (in_array(1, $rolls)) { // ones
+				removeValueFromArray($rolls, 1);
+				return 100;
+			} elseif (in_array(5, $rolls)) { // fives
+				removeValueFromArray($rolls, 5);
+				return 50;
+			} else { // take the stinkin' twos
+				$rolls = array_diff($rolls, [$val]);
+				return 200;
+			}
+		}
+	} elseif (in_array(1, $rolls)) { // ones
+		removeValueFromArray($rolls, 1);
+		return 100;
+	} elseif (in_array(5, $rolls)) { // fives
+		removeValueFromArray($rolls, 5);
+		return 50;
+	}
+
+	return "farkle";
+}
+
+function removeValueFromArray(&$array, $value) {
+	$index = array_search($value, $array);
+	unset($array[$index]);
+}
+
+function isXOfAKind($counts, $x) {
+	foreach ($counts as $die => $count) {
+		if ($count === $x) {
+			return $die;
+		}
+	}
+	return false;
+}
+
+function isStraight($counts) {
+	if (count(array_keys($counts)) === 6) {
+		return true;
+	}
+	return false;
+}
+
+function isThreePair($counts) {
+	if (count(array_keys($counts)) !== 3) {
+		return false;
+	}
+	foreach ($counts as $die => $count) {
+		if ($count !== 2) {
+			return false;
+		}
+	}
+	return true;
+}
+
+function isTwoTriplets($counts) {
+	if (count(array_keys($counts)) !== 2) {
+		return false;
+	}
+	foreach ($counts as $die => $count) {
+		if ($count !== 3) {
+			return false;
+		}
+	}
+	return true;
+}
+
+function isFullHouse($counts) {
+	if (count(array_keys($counts)) !== 2) {
+		return false;
+	}
+	foreach ($counts as $die => $count) {
+		if ($count !== 2 && $count !== 4) {
+			return false;
+		}
+	}
+	return true;
+}
+
+?>

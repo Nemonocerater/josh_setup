@@ -56,6 +56,14 @@ export P4PORT="ssl:p4proxy.atlanta.soma.salesforce.com:1999"
 export PATH=~/code/josh_setup/scripts:$PATH
 export PATH=~/code/josh_setup/node_scripts:$PATH
 
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+
+# Set to Vim mode
+set -o vi
+
+# Added by GraphLab Create Launcher v3.0.0
+export PATH="/Users/joshua.harris/anaconda/bin:$PATH"
+
 # Pull in services
 source ~/code/josh_setup/zsh/.zshrc.services
 
