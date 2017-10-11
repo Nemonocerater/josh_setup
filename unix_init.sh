@@ -1,8 +1,10 @@
 #!/bin/sh
 
+PKG_MNG="apt-get"
+
 ## Install Oh-my-zsh
-sudo apt-get remove zsh
-sudo apt-get install zsh
+sudo $PKG_MNG remove zsh
+sudo $PKG_MNG install zsh
 rm -rf ~/.oh-my-zsh
 curl -L http://install.ohmyz.sh | sh
 
@@ -16,11 +18,11 @@ rm -rf ~/.nvm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
 
 ## Install command line utilities
-sudo apt-get install tree
-sudo apt-get install markdown
+sudo $PKG_MNG install tree
+sudo $PKG_MNG install markdown
 
-sudo apt-get install tmux
-sudo apt-get install irssi
-sudo apt-get install lynx
+sudo $PKG_MNG install tmux
+sudo $PKG_MNG install irssi
+sudo $PKG_MNG install lynx
 
 ./unix_config.sh
