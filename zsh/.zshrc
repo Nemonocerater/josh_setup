@@ -26,55 +26,35 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-if [ -f ~/.bash_profile ]; then
-	source ~/.bash_profile
-fi
-if [ -f ~/.bashrc ]; then
-	source ~/.bashrc
-fi
-
-# rbenv stuffs
-eval "$(rbenv init -)"
-RBENV_VERSION="2.2.2"
-
-# nvm stuffs
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
-
+# Set to Vim mode
+set -o vi
 
 # vagrant stuffs
 local VAGRANT_DEV_DIR=~/Code/vagrant-dev
 
-alias 'vagrant_xdebug'='vagrant ssh -- -N -R 9000:localhost:9000 &'
+alias 'vagrant_logs'='vagrant ssh -c "sudo tail -n0 -f /var/log/messages"'
+alias 'vagrant_errors'='vagrant ssh -c "sudo tail -n0 -f /var/log/messages | grep --color=auto \"CRITICAL\|ALERT\|ERROR\|Fatal\|EMERGENCY\""'
+alias 'vagrant_xdebug'='vagrant ssh -- -N -R 9000:localhost:9000'
+alias 'vagrant_test'='vagrant ssh -c "./phpunit $1"'
 alias 'rmux'='vagrant ssh -- sudo start rmux'
 alias 'vrestart'='vagrant halt && vagrant up && rmux'
-
-
-### Google Cloud
-if [ -d "/Users/joshua/google-cloud-sdk" ]; then
-	# The next line updates PATH for the Google Cloud SDK.
-	source '/Users/joshua/google-cloud-sdk/path.zsh.inc'
-
-	# The next line enables bash completion for gcloud.
-	source '/Users/joshua/google-cloud-sdk/completion.zsh.inc'
-fi
+export DESKTOP='10.71.20.62'
 
 
 ### Aliases
+eval "$(thefuck --alias)"
 alias 'c'='clear'
 alias 'glog'='git log --pretty="%C(yellow bold)%h%Creset %C(magenta dim)(%ae) %Creset%s"'
 alias 'pgrep'='ps aux | grep'
+alias 'clear-local-branches'='git branch | grep -v "master|aaa" | xargs git branch -D'
+alias 'open-desktop'='sudo ufw allow proto tcp from any to any port 6109'
+alias 'beep'='tput bel'
 
-
-### Mac OS X Improvements
-export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagaced
-
+export P4PORT="ssl:p4proxy.atlanta.soma.salesforce.com:1999"
 
 # Add my custom scripts to the path
 export PATH=~/code/josh_setup/scripts:$PATH
 export PATH=~/code/josh_setup/node_scripts:$PATH
-export PATH=~/android-sdk-macosx/platform-tools:$PATH
 
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
@@ -83,3 +63,13 @@ set -o vi
 
 # Added by GraphLab Create Launcher v3.0.0
 export PATH="/Users/joshua.harris/anaconda/bin:$PATH"
+
+# Pull in services
+source ~/code/josh_setup/zsh/.zshrc.services
+
+# Run OS dependant code
+if [ `is_mac` ]; then
+	source ~/code/josh_setup/zsh/.zshrc.mac
+else
+	source ~/code/josh_setup/zsh/.zshrc.unix
+fi

@@ -45,6 +45,10 @@ set clipboard=unnamed	" Sets the clipboard
 set history=1000		" remember more commands and search history
 set undolevels=1000		" have lots undo
 
+" No Newline at end of file
+set binary
+set noeol
+
 " Swapfiles into backup
 set backupdir=./.backup,~/.backup,.
 set directory=./.backup,~/.backup,.

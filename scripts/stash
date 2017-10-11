@@ -1,0 +1,13 @@
+#!/bin/sh
+
+MESSAGE=$1
+if [ $1="list" ]
+then
+	echo "yaea"
+	echo $1
+	git stash list
+else
+	echo "nooo"
+	echo $1
+	git stash save $MESSAGE
+fi
