@@ -1,13 +1,19 @@
 #!/usr/bin/env node
 
 if (process.argv.length < 5) {
-	console.log ("loan <loanAmount> <loanPercentage:decimal> <monthlyPayment>");
+	console.log ("loan <loanAmount> <loanPercentage:decimal> <monthlyPayment> [options]");
+	console.log ("Options:");
+	console.log ("-i : interest paid");
+	console.log ("-t : time to pay");
+	console.log ("-tm : time to pay in months");
+	console.log ("-T : total paid");
 	process.exit (0);
 }
 
 var loanAmount = process.argv[2];
 var loanPercentage = process.argv[3];
 var monthlyPayment = parseInt (process.argv[4]);
+var option = process.argv[5];
 
 var currentLoan = loanAmount;
 var monthlyIncrease = 1 + (loanPercentage / 12);
@@ -27,6 +33,20 @@ while (currentLoan > 0) {
 	numMonths++;
 }
 
-console.log ("You have $" + loanAmount + " in debt, and are paying it off at $" + monthlyPayment + " per month");
-console.log ("It will take you " + parseInt (numMonths / 12) + " years and " + (numMonths % 12) + " months to pay it off.");
-console.log ("You will end up paying $" + amountPaid + ".  Which means you pay them $" + (amountPaid - loanAmount) + " in interest.");
+amountPaid = amountPaid.toFixed(2);
+var time = parseInt (numMonths / 12) + " years and " + (numMonths % 12) + " months";
+var interest = (amountPaid - loanAmount).toFixed(2);
+
+if (option === "-i") {
+	console.log (interest);
+} else if (option === "-t") {
+	console.log (time);
+} else if (option === "-tm") {
+	console.log (numMonths);
+} else if (option === "-T") {
+	console.log (amountPaid);
+} else {
+	console.log ("You have $" + loanAmount + " in debt, and are paying it off at $" + monthlyPayment + " per month");
+	console.log ("It will take you " + time + " to pay it off.");
+	console.log ("You will end up paying $" + amountPaid + ".  Which means you pay them $" + interest + " in interest.");
+}

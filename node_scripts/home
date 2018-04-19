@@ -1,0 +1,68 @@
+#!/usr/bin/env node
+
+function execSync(cmd) {
+	var ret = require('child_process').execSync(cmd).toString().trim();
+	return ret;
+}
+
+if (process.argv.length < 7) {
+	console.log ("home <currentRent> <investmentRate:decimal> <mortgageTotal> <mortgageInterest:decimal> <montlyPayment> [<monthlyEscrow> = 0[, options]]");
+	console.log ("Options:");
+	console.log ("-g : net gain if you rented rather then purchased a house");
+	console.log ("-D : duration to pay back your house");
+	process.exit (0);
+}
+
+var currentRent = parseInt (process.argv[2]);
+var investmentRate = process.argv[3];
+var mortgageTotal = parseInt (process.argv[4]);
+var mortgageInterest = process.argv[5];
+var monthlyPayment = parseInt (process.argv[6]);
+
+var monthlyEscrow = (process.argv.length > 7) ? parseInt (process.argv[7]) : 0;
+var option = (process.argv.length > 8) ? process.argv[8] : "";
+
+var totalMonthlyPayment = monthlyPayment + monthlyEscrow;
+var monthlyInvestmentAmount = totalMonthlyPayment - currentRent;
+if (monthlyInvestmentAmount < 0) {
+	console.log ("The monthly cost is less than your rent.  You can't afford this!");
+	process.exit (0);
+}
+
+var duration = execSync ('loan ' + mortgageTotal + ' ' + mortgageInterest + ' ' + monthlyPayment + ' -t');
+var monthsToPayBack = execSync ('loan ' + mortgageTotal + ' ' + mortgageInterest + ' ' + monthlyPayment + ' -tm');
+var totalHouseCost = execSync ('loan ' + mortgageTotal + ' ' + mortgageInterest + ' ' + monthlyPayment + ' -T');
+var interestPaidToHouse = execSync ('loan ' + mortgageTotal + ' ' + mortgageInterest + ' ' + monthlyPayment + ' -i');
+
+var totalInvestment = execSync ('invest ' + monthsToPayBack + ' ' + monthlyInvestmentAmount + ' ' + investmentRate + ' 0 -T');
+var investmentGains = execSync ('invest ' + monthsToPayBack + ' ' + monthlyInvestmentAmount + ' ' + investmentRate + ' 0 -g');
+
+var inflatedHousePrice = execSync ('invest ' + monthsToPayBack + ' 0 0.02 ' + mortgageTotal + ' -T');
+
+var totalRentPaid = currentRent * monthsToPayBack;
+var netGainOfRenting = totalInvestment - inflatedHousePrice;
+
+if (option === "-g") {
+	console.log (netGainOfRenting);
+} else {
+	console.log ("After " + duration + " living at your current appartment");
+	console.log ("paying $" + currentRent + " in rent and investing $" + monthlyInvestmentAmount + " monthly you will have:");
+	console.log ("  Spent $" + totalRentPaid + " on rent in total.");
+	console.log ("  Grew an investment to $" + totalInvestment + ".");
+
+	console.log ("==========");
+	console.log ("After " + duration + " living at your new house");
+	console.log ("spending $" + totalMonthlyPayment + " monthly towards your $" + mortgageTotal + " house you will have:");
+	console.log ("  Spent $" + totalHouseCost + " on the house in total.");
+	console.log ("  Spent $" + interestPaidToHouse + " in interest on the mortgage.");
+
+	console.log ("==========");
+	console.log ("After " + duration + " the house would be worth $" + inflatedHousePrice + ", so...");
+	if (netGainOfRenting >= 0) {
+		console.log ("The net gain of renting would have been $" + netGainOfRenting);
+		console.log ("Or, $" + (netGainOfRenting / monthsToPayBack) + " per month");
+	} else {
+		console.log ("By renting and investing you lost $" + netGainOfRenting);
+		console.log ("Or, $" + (netGainOfRenting / monthsToPayBack) + " per month");
+	}
+}

@@ -1,0 +1,44 @@
+#!/usr/bin/env node
+
+function execSync(cmd) {
+	var ret = require('child_process').execSync(cmd).toString().trim();
+	return ret;
+}
+
+function getArg(index, def) {
+	index += 2;
+	return (process.argv.length > index) ? process.argv[index] : def;
+}
+
+if (getArg(0, false) === "-h") {
+	console.log ("homes [mortgage[, option]]");
+	console.log ("homes -h");
+	console.log ("Options:");
+	console.log ("-d : duration to pay off the house");
+	console.log ("-g : net gains from staying in an apartment");
+	process.exit(0);
+}
+
+var mortgage = parseInt(getArg(0, 160000));
+var option = getArg(1, "-d");
+
+for (var payment = 2000; payment <= 5200; payment += 100) {
+	switch (option) {
+		case "-d":
+			var duration = execSync ('loan ' + mortgage + ' 0.03125 ' + payment + ' -tm');
+			logArrayToCsv([mortgage, payment, duration]);
+			break;
+		case "-g":
+			var netGain = execSync("home 390 0.07 " + mortgage + " 0.03125 " + payment + " 0 -g");
+			logArrayToCsv([mortgage, payment, netGain]);
+			break;
+	}
+}
+
+function logArrayToCsv(array) {
+	var str = array[0];
+	for (var i = 1; i < array.length; i++) {
+		str += ", " + array[i];
+	}
+	console.log(str);
+}
