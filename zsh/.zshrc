@@ -42,13 +42,14 @@ export DESKTOP='10.71.20.62'
 
 
 ### Aliases
-eval "$(thefuck --alias)"
+#eval "$(thefuck --alias)"
 alias 'c'='clear'
 alias 'glog'='git log --pretty="%C(yellow bold)%h%Creset %C(magenta dim)(%ae) %Creset%s"'
 alias 'pgrep'='ps aux | grep'
 alias 'clear-local-branches'='git branch | grep -v "master|aaa" | xargs git branch -D'
 alias 'open-desktop'='sudo ufw allow proto tcp from any to any port 6109'
 alias 'beep'='tput bel'
+alias 'highlight'='ack --passthru'
 
 export P4PORT="ssl:p4proxy.atlanta.soma.salesforce.com:1999"
 
