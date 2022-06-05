@@ -56,10 +56,11 @@ export PATH=$PATH:$GOPATH/bin
 # Pull in services
 source ~/code/josh_setup/zsh/.zshrc.services
 
-# Run OS dependant code
-if [ `is_mac` ]; then
-	source ~/code/josh_setup/zsh/.zshrc.mac
-else
-	source ~/code/josh_setup/zsh/.zshrc.unix
-fi
+# Mac OS X Improvements
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
 
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
