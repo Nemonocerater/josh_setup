@@ -29,6 +29,9 @@ source $ZSH/oh-my-zsh.sh
 # Set to Vim mode
 set -o vi
 
+# Set up SSH
+eval `ssh-agent -s` >> /dev/null
+
 # vagrant stuffs
 local VAGRANT_DEV_DIR=~/Code/vagrant-dev
 
@@ -64,6 +67,13 @@ set -o vi
 # Added by GraphLab Create Launcher v3.0.0
 export PATH="/Users/joshua.harris/anaconda/bin:$PATH"
 
+
+
+# Manually added for brew
+export PATH="/usr/local/bin/:$PATH"
+
+export PATH=$PATH:$GOPATH/bin
+
 # Pull in services
 source ~/code/josh_setup/zsh/.zshrc.services
 
@@ -73,3 +83,5 @@ if [ `is_mac` ]; then
 else
 	source ~/code/josh_setup/zsh/.zshrc.unix
 fi
+
+export HOMEBREW_GITHUB_API_TOKEN=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

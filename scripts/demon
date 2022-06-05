@@ -5,7 +5,8 @@
 #	say -r 0.25 -v Whisper $i;
 #done
 
-VOICE="Whisper"
+#VOICE="Whisper"
+VOICE="Fiona"
 
 SUGGESTED_VOICE="$1"
 if [ -z ${SUGGESTED_VOICE+x} ]; then
@@ -13,4 +14,4 @@ if [ -z ${SUGGESTED_VOICE+x} ]; then
 fi;
 echo $VOICE
 
-cat /usr/share/dict/words | rev | gshuf | say -r 0.25 -v $VOICE
+cat /usr/share/dict/words | rev | gshuf | say -r 0.25 #-v Whisper #$VOICE
