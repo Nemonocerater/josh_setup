@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 
 if (process.argv.length < 5) {
-	console.log ("invest <numMonths> <montlyAmount> <percentageReturn:decimal> [<initialCapital> = 0]");
+	console.log ("invest <numMonths> <montlyAmount> <percentageReturn:decimal> [<initialCapital> = 0[, options]]");
+	console.log ("Options:");
+	console.log ("-g : your gains from interest");
+	console.log ("-T : your account's total value");
 	process.exit (0);
 }
 
@@ -10,8 +13,10 @@ var monthlyAmount = parseInt (process.argv[3]);
 var percentageReturn = process.argv[4];
 
 var initialCapital = 0;
+var option = "";
 if (process.argv.length > 5) {
 	initialCapital = parseInt (process.argv[5]);
+	option = process.argv[6];
 }
 
 var investment = initialCapital;
@@ -25,8 +30,17 @@ for (var i = 0; i < numMonths; i++) {
 	investment = investment * monthlyIncrease;
 }
 
-console.log ("You are investing " + monthlyAmount + " dollars for " + numMonths + " months with a " + percentageReturn + " growth.");
-console.log ("You started with: " + initialCapital);
-console.log ("You put in: " + amountPaid);
-console.log ("Your investment is worth: $" + investment.toFixed(2));
-console.log ("Your gains: $" + (investment.toFixed(2) - amountPaid - initialCapital));
+var total = investment.toFixed(2);
+var gains = (total - amountPaid - initialCapital).toFixed(2);
+
+if (option === "-g") {
+	console.log (gains);
+} else if (option === "-T") {
+	console.log (total);
+} else {
+	console.log ("You are investing " + monthlyAmount + " dollars for " + numMonths + " months with a " + percentageReturn + " growth.");
+	console.log ("You started with: " + initialCapital);
+	console.log ("You put in: " + amountPaid);
+	console.log ("Your investment is worth: $" + total);
+	console.log ("Your gains: $" + gains);
+}
