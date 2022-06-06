@@ -14,18 +14,23 @@ sudo brew doctor
 ## Install ITerm2
 brew install --cask iterm2
 
-## Install Chrome
-brew install --cask google-chrome
-
 ## Install vim
 brew install macvim
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-## Install nvm
+## Install Node
 brew install nvm
 mkdir -p ~/.nvm
 
+nvm install --lts
+
 ## Install hub
 brew install hub
+
+## Install VS Code
+brew install --cask visual-studio-code
+
+## Install Chrome
+brew install --cask google-chrome
 
 ./mac_config.sh
