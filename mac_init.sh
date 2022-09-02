@@ -8,7 +8,8 @@ killall Dock
 curl -L http://install.ohmyz.sh | sh
 
 ## Install Homebrew
-sudo ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 sudo brew doctor
 
 ## Install ITerm2
