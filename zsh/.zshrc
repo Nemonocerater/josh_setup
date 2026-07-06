@@ -47,7 +47,7 @@ export PATH=~/code/josh_setup/node_scripts:$PATH
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
 # Manually added for brew
-export PATH="/usr/local/bin/:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
 export HOMEBREW_GITHUB_API_TOKEN=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
 
 # Setup Go
