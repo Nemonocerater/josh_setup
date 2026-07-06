@@ -51,7 +51,8 @@ export PATH="/opt/homebrew/bin:$PATH"
 export HOMEBREW_GITHUB_API_TOKEN=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
 
 # Setup Go
-export PATH=$PATH:$GOPATH/bin
+export GOPATH="$(go env GOPATH)"
+export PATH="$PATH:$GOPATH/bin"
 
 # Pull in services
 source ~/code/josh_setup/zsh/.zshrc.services
