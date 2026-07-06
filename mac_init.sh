@@ -22,11 +22,25 @@ brew install --cask google-chrome
 brew install macvim
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-## Install nvm
+## Install nvm and latest Node
 brew install nvm
-mkdir -p ~/.nvm
+export NVM_DIR="$HOME/.nvm"
+mkdir -p "$NVM_DIR"
+bash <<'EOF'
+export NVM_DIR="$HOME/.nvm"
+if [ -s "/opt/homebrew/opt/nvm/nvm.sh" ]; then
+  . "/opt/homebrew/opt/nvm/nvm.sh"
+elif [ -s "/usr/local/opt/nvm/nvm.sh" ]; then
+  . "/usr/local/opt/nvm/nvm.sh"
+else
+  echo "nvm not found after brew install" >&2
+  exit 1
+fi
+nvm install node
+nvm alias default node
+EOF
 
-## Install hub
-brew install hub
+## Install GitHub CLI
+brew install gh
 
 ./mac_config.sh
