@@ -1,35 +1,11 @@
-" For first time install of Vundle packages run :PluginInstall in vim
-
-set nocompatible						" be iMproved, required for Vundle
-filetype off							" required for Vundle
-set rtp+=~/.vim/bundle/Vundle.vim		" set the runtime path to include Vundle and initialize
-
-call vundle#begin() " where Vundle should install plugins: vundle#begin('~/some/path/here')
-Plugin 'gmarik/Vundle.vim'				" let Vundle manage Vundle, required
-
-" Color Schemes
-"Plugin 'morhetz/gruvbox'
-"Plugin 'Guardian'
-Plugin 'flazz/vim-colorschemes'
-call vundle#end()
-
-filetype plugin indent on    " required for Vundle
-" To ignore plugin indent changes, instead use: filetype plugin on
-
-"      ~~~~~ Brief help ~~~~~
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-" see :h vundle for more details or wiki for FAQ
-
-
-
-
 " Basic Settings
+set nocompatible
+filetype plugin indent on
 syntax on
+set termguicolors
+set background=dark
+colorscheme catppuccin
 set hidden				" hides buffers instead of closes them to allow switching files with :e
-set nocompatible		" Not compatible with vi.  This allows better use of vim features
 set number				" Turns on line numbers
 set smartindent			" Automatically maintains indentation
 set autoindent			" May not need both of these (auto, smart)
@@ -96,5 +72,3 @@ map <F3> :set paste<CR> :r !pbpaste<CR> :set nopaste<CR>
 :autocmd BufRead,BufNewFile *_js.resource setlocal syntax=javascript
 :autocmd BufRead,BufNewFile *.cls setlocal syntax=cs
 :autocmd BufRead,BufNewFile *.page setlocal syntax=html
-
-colorscheme zellner

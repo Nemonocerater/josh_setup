@@ -20,7 +20,6 @@ brew install --cask google-chrome
 
 ## Install vim
 brew install macvim
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 ## Install nvm and latest Node
 brew install nvm
