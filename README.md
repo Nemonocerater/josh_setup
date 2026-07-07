@@ -101,3 +101,8 @@ If `git` or `ssh-keygen` are missing, install Xcode Command Line Tools first:
 ```sh
 xcode-select --install
 ```
+
+# TODOs
+
+- [ ] Move everything that installs to use `Brewfile`
+  `brew install --cask docker`
