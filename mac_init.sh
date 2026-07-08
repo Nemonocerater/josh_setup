@@ -42,4 +42,6 @@ EOF
 ## Install GitHub CLI
 brew install gh
 
+brew install tree
+
 ./mac_config.sh

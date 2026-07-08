@@ -39,7 +39,7 @@ alias 'pgrep'='ps aux | grep'
 alias 'clear-local-branches'='git branch | grep -v "master|personal" | xargs git branch -D'
 alias 'open-desktop'='sudo ufw allow proto tcp from any to any port 6109'
 alias 'beep'='tput bel'
-alias 'rez'='source ~/.zshrc && echo "~/.zshrc has been reloaded"'
+alias 'rezsh'='source ~/.zshrc && echo "~/.zshrc has been reloaded"'
 
 # Add my custom scripts to the path
 export PATH=~/code/josh_setup/scripts:$PATH
