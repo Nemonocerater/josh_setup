@@ -10,7 +10,19 @@ zstyle ':completion:*' menu select
 export COMPLETION_WAITING_DOTS=true
 
 # Prompt
-PROMPT='%n@%m:%~$ '
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr ' %F{9}✗%F{12}'
+zstyle ':vcs_info:*' stagedstr ' %F{9}✗%F{12}'
+zstyle ':vcs_info:*' cleanstr ' %F{10}✔%F{12}'
+zstyle ':vcs_info:git:*' formats ' %F{12}(%b%u%c)%f'
+zstyle ':vcs_info:git:*' actionformats ' %F{12}(%b%u%c)%f'
+
+setopt PROMPT_SUBST
+PROMPT='%F{green}%~%f${vcs_info_msg_0_} '
 
 # Set to Vim mode
 set -o vi
@@ -21,6 +33,7 @@ alias 'glog'='git log --pretty="%C(yellow bold)%h%Creset %C(magenta dim)(%ae) %C
 alias 'pgrep'='ps aux | grep'
 alias 'beep'='tput bel'
 alias 'rezsh'='source ~/.zshrc && echo "~/.zshrc has been reloaded"'
+alias 'envload'='env $(xargs < .env)'
 
 # Add my custom scripts to the path
 export PATH=~/code/josh_setup/scripts:$PATH
