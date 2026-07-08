@@ -11,15 +11,21 @@ export COMPLETION_WAITING_DOTS=true
 
 # Prompt
 autoload -Uz vcs_info
-precmd() { vcs_info }
 
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr ' %F{9}✗%F{12}'
 zstyle ':vcs_info:*' stagedstr ' %F{9}✗%F{12}'
-zstyle ':vcs_info:*' cleanstr ' %F{10}✔%F{12}'
 zstyle ':vcs_info:git:*' formats ' %F{12}(%b%u%c)%f'
 zstyle ':vcs_info:git:*' actionformats ' %F{12}(%b%u%c)%f'
+
+precmd() {
+	vcs_info
+	# zsh 5.9 has no cleanstr; append ✔ when the repo is clean
+	if [[ -n ${vcs_info_msg_0_} && ${vcs_info_msg_0_} != *✗* ]]; then
+		vcs_info_msg_0_=${vcs_info_msg_0_/\)%f/' %F{10}✔%F{12})%f'}
+	fi
+}
 
 setopt PROMPT_SUBST
 PROMPT='%F{green}%~%f${vcs_info_msg_0_} '
