@@ -40,6 +40,7 @@ alias 'pgrep'='ps aux | grep'
 alias 'beep'='tput bel'
 alias 'rezsh'='source ~/.zshrc && echo "~/.zshrc has been reloaded"'
 alias 'envload'='env $(xargs < .env)'
+alias 'cagent'='cursor-agent'
 
 # Add my custom scripts to the path
 export PATH=~/code/josh_setup/scripts:$PATH
