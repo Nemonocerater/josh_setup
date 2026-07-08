@@ -1,0 +1,7 @@
+cask "iterm2"
+cask "google-chrome"
+brew "macvim"
+brew "nvm"
+brew "gh"
+brew "tree"
+brew "coreutils"

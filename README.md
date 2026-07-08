@@ -90,9 +90,9 @@ cd ~/code/josh_setup
 ./mac_init.sh
 ```
 
-`mac_init.sh` installs Homebrew, oh-my-zsh, iTerm2, Chrome, MacVim, nvm, gh, and related tools. It also calls `mac_config.sh` at the end, so running both is optional but harmless.
+`mac_init.sh` installs Homebrew, packages from `Brewfile` (iTerm2, Chrome, MacVim, nvm, gh, tree, coreutils), sets up Node via nvm, and calls `mac_config.sh` to symlink dotfiles.
 
-Expect interactive prompts during `mac_init.sh` (Homebrew, oh-my-zsh, etc.).
+Expect interactive prompts during `mac_init.sh` (Homebrew, etc.).
 
 ### Prerequisites
 
@@ -104,5 +104,4 @@ xcode-select --install
 
 # TODOs
 
-- [ ] Move everything that installs to use `Brewfile`
-  `brew install --cask docker`
+- [ ] `brew install --cask docker`
