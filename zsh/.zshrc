@@ -18,6 +18,15 @@ zstyle ':vcs_info:*' unstagedstr ' %F{9}✗%F{12}'
 zstyle ':vcs_info:*' stagedstr ' %F{9}✗%F{12}'
 zstyle ':vcs_info:git:*' formats ' %F{12}(%b%u%c)%f'
 zstyle ':vcs_info:git:*' actionformats ' %F{12}(%b%u%c)%f'
+zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
+
++vi-git-untracked() {
+	if [[ $(git rev-parse --is-inside-work-tree 2>/dev/null) == true ]] &&
+	   [[ -n $(git ls-files --others --exclude-standard 2>/dev/null) ]] &&
+	   [[ -z ${hook_com[unstaged]} && -z ${hook_com[staged]} ]]; then
+		hook_com[unstaged]=' %F{9}✗%F{12}'
+	fi
+}
 
 precmd() {
 	vcs_info
@@ -36,10 +45,9 @@ set -o vi
 ### Aliases
 alias 'c'='clear'
 alias 'glog'='git log --pretty="%C(yellow bold)%h%Creset %C(magenta dim)(%ae) %Creset%s"'
-alias 'pgrep'='ps aux | grep'
+#alias 'pgrep'='ps aux | grep'
 alias 'beep'='tput bel'
 alias 'rezsh'='source ~/.zshrc && echo "~/.zshrc has been reloaded"'
-alias 'envload'='env $(xargs < .env)'
 alias 'cagent'='cursor-agent'
 
 # Add my custom scripts to the path
@@ -72,3 +80,8 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # Local Config
 source ~/.zshrc.local
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/joshua.harris/.lmstudio/bin"
+# End of LM Studio CLI section
+
